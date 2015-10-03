@@ -13,7 +13,7 @@ class SettingsViewController: UIViewController, FBSDKLoginButtonDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Show login button
+        // Show logout button
         let loginView : FBSDKLoginButton = FBSDKLoginButton()
         self.view.addSubview(loginView)
         loginView.center = self.view.center
@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController, FBSDKLoginButtonDelegate {
     // Facebook Delegate Methods
     func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
         print("User Logged In")
-        
+
         if ((error) != nil)
         {
             // Process error
@@ -45,6 +45,7 @@ class SettingsViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("User Logged Out")
+        //Show login screen modal after logout
         self.tabBarController?.performSegueWithIdentifier("showLogin", sender: self)
     }
 
@@ -52,7 +53,7 @@ class SettingsViewController: UIViewController, FBSDKLoginButtonDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
 
     /*
     // MARK: - Navigation

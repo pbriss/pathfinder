@@ -40,14 +40,13 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             if result.grantedPermissions.contains("email")
             {
                 // Do work
-                print("Error: Email permission not granted")
             }
             
             self.returnUserData()
         }
         
     }
-    
+
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("User Logged Out")
     }
@@ -65,15 +64,16 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
             }
             else {
                 let userDefaults = NSUserDefaults.standardUserDefaults()
-                if let userName = NSString = result.valueForKey("name") as! NSString {
+                if let userName = result.valueForKey("name") as? NSString {
                     userDefaults.setObject(userName, forKey: "username")
                 }
-                if let userEmail = NSString = result.valueForKey("email") as! NSString {
+                if let userEmail = result.valueForKey("email") as? NSString {
                     userDefaults.setObject(userEmail, forKey: "email")
                 }
                 userDefaults.synchronize()
                 
                 self.dismissViewControllerAnimated(true, completion: nil)
+
             }
         })
     }

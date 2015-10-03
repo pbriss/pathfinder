@@ -18,10 +18,6 @@ class HomeViewController: UIViewController {
         let mtbc = self.tabBarController  as! MainTabBarController
         userNameLabel.text = mtbc.userModel.userName
     }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
