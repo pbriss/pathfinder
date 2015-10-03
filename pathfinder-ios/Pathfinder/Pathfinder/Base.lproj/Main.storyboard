@@ -62,7 +62,7 @@
                         <viewControllerLayoutGuide type="top" id="Mv7-5d-JER"/>
                         <viewControllerLayoutGuide type="bottom" id="Nzo-EW-3Uz"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="D8f-Gr-lt5" customClass="LoginBackgroundView" customModule="Pathfinder" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="D8f-Gr-lt5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>

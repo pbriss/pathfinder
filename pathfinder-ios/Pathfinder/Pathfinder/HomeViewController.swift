@@ -15,6 +15,13 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //Hide the nav bar by default
+        self.navigationController?.navigationBarHidden = true
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
         let mtbc = self.tabBarController  as! MainTabBarController
         userNameLabel.text = mtbc.userModel.userName
     }
@@ -23,8 +30,6 @@ class HomeViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
     
     // MARK: - Navigation
 

@@ -45,6 +45,12 @@ class SettingsViewController: UIViewController, FBSDKLoginButtonDelegate {
     
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("User Logged Out")
+
+        //Make sure to empty user defaults
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.removeObjectForKey("username")
+        userDefaults.removeObjectForKey("email")
+
         //Show login screen modal after logout
         self.tabBarController?.performSegueWithIdentifier("showLogin", sender: self)
     }

@@ -15,21 +15,27 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    }
+
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
         // If not logged in, show login modal
         if (FBSDKAccessToken.currentAccessToken() == nil) {
             performSegueWithIdentifier("showLogin", sender: self)
         }
-        // User is already logged in, go to home view controller.
-        else {
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+
+        //User is logged in, show home view and set user defaults
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
             let userDefaults = NSUserDefaults.standardUserDefaults()
             if let username = userDefaults.objectForKey("username") as? String {
                 userModel.userName = username
             }
         }
-    }
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
     }
 
     override func didReceiveMemoryWarning() {
