@@ -8,13 +8,20 @@
 
 /* Begin PBXBuildFile section */
 		6A71973A1BBCE42A00065577 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7197391BBCE42A00065577 /* AppDelegate.swift */; };
-		6A71973C1BBCE42A00065577 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A71973B1BBCE42A00065577 /* ViewController.swift */; };
+		6A71973C1BBCE42A00065577 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A71973B1BBCE42A00065577 /* LoginViewController.swift */; };
 		6A71973F1BBCE42A00065577 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A71973D1BBCE42A00065577 /* Main.storyboard */; };
 		6A7197411BBCE42A00065577 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6A7197401BBCE42A00065577 /* Assets.xcassets */; };
 		6A7197441BBCE42A00065577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A7197421BBCE42A00065577 /* LaunchScreen.storyboard */; };
 		6A71974F1BBCE42A00065577 /* PathfinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A71974E1BBCE42A00065577 /* PathfinderTests.swift */; };
 		6A71975A1BBCE42A00065577 /* PathfinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7197591BBCE42A00065577 /* PathfinderUITests.swift */; };
 		6A71976B1BBCFD4800065577 /* LoginBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A71976A1BBCFD4800065577 /* LoginBackgroundView.swift */; settings = {ASSET_TAGS = (); }; };
+		6ACE5DC91BBE543A005B96DA /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACE5DC61BBE543A005B96DA /* Bolts.framework */; };
+		6ACE5DCA1BBE543A005B96DA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACE5DC71BBE543A005B96DA /* FBSDKCoreKit.framework */; };
+		6ACE5DCB1BBE543A005B96DA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6ACE5DC81BBE543A005B96DA /* FBSDKLoginKit.framework */; };
+		6ACE5DD01BBF88A8005B96DA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE5DCF1BBF88A8005B96DA /* HomeViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		6ACE5DD21BBF92F5005B96DA /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE5DD11BBF92F5005B96DA /* MainTabBarController.swift */; settings = {ASSET_TAGS = (); }; };
+		6ACE5DD41BBFA057005B96DA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE5DD31BBFA057005B96DA /* SettingsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		C4B92FCF82C7F3563D1ABAEE /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B920C4D386EBCEEDD37216 /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +44,7 @@
 /* Begin PBXFileReference section */
 		6A7197361BBCE42900065577 /* Pathfinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pathfinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6A7197391BBCE42A00065577 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6A71973B1BBCE42A00065577 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6A71973B1BBCE42A00065577 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		6A71973E1BBCE42A00065577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6A7197401BBCE42A00065577 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6A7197431BBCE42A00065577 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +56,14 @@
 		6A7197591BBCE42A00065577 /* PathfinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathfinderUITests.swift; sourceTree = "<group>"; };
 		6A71975B1BBCE42A00065577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A71976A1BBCFD4800065577 /* LoginBackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginBackgroundView.swift; sourceTree = "<group>"; };
+		6A7197831BBE3C2600065577 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		6ACE5DC61BBE543A005B96DA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		6ACE5DC71BBE543A005B96DA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		6ACE5DC81BBE543A005B96DA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		6ACE5DCF1BBF88A8005B96DA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6ACE5DD11BBF92F5005B96DA /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		6ACE5DD31BBFA057005B96DA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C4B920C4D386EBCEEDD37216 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +71,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6ACE5DC91BBE543A005B96DA /* Bolts.framework in Frameworks */,
+				6ACE5DCA1BBE543A005B96DA /* FBSDKCoreKit.framework in Frameworks */,
+				6ACE5DCB1BBE543A005B96DA /* FBSDKLoginKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,12 +117,14 @@
 		6A7197381BBCE42900065577 /* Pathfinder */ = {
 			isa = PBXGroup;
 			children = (
+				6ACE5DCC1BBE5446005B96DA /* Frameworks */,
 				6A7197691BBCF8B100065577 /* Models */,
 				6A7197671BBCF89900065577 /* Views */,
 				6A7197681BBCF8A600065577 /* Controllers */,
 				6A7197401BBCE42A00065577 /* Assets.xcassets */,
 				6A7197391BBCE42A00065577 /* AppDelegate.swift */,
 				6A7197451BBCE42A00065577 /* Info.plist */,
+				6A7197831BBE3C2600065577 /* Bridging-Header.h */,
 			);
 			path = Pathfinder;
 			sourceTree = "<group>";
@@ -140,7 +160,10 @@
 		6A7197681BBCF8A600065577 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				6A71973B1BBCE42A00065577 /* ViewController.swift */,
+				6A71973B1BBCE42A00065577 /* LoginViewController.swift */,
+				6ACE5DCF1BBF88A8005B96DA /* HomeViewController.swift */,
+				6ACE5DD11BBF92F5005B96DA /* MainTabBarController.swift */,
+				6ACE5DD31BBFA057005B96DA /* SettingsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -148,8 +171,19 @@
 		6A7197691BBCF8B100065577 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				C4B920C4D386EBCEEDD37216 /* UserModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		6ACE5DCC1BBE5446005B96DA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6ACE5DC61BBE543A005B96DA /* Bolts.framework */,
+				6ACE5DC71BBE543A005B96DA /* FBSDKCoreKit.framework */,
+				6ACE5DC81BBE543A005B96DA /* FBSDKLoginKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,8 +317,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A71976B1BBCFD4800065577 /* LoginBackgroundView.swift in Sources */,
-				6A71973C1BBCE42A00065577 /* ViewController.swift in Sources */,
+				6A71973C1BBCE42A00065577 /* LoginViewController.swift in Sources */,
+				6ACE5DD21BBF92F5005B96DA /* MainTabBarController.swift in Sources */,
 				6A71973A1BBCE42A00065577 /* AppDelegate.swift in Sources */,
+				6ACE5DD01BBF88A8005B96DA /* HomeViewController.swift in Sources */,
+				6ACE5DD41BBFA057005B96DA /* SettingsViewController.swift in Sources */,
+				C4B92FCF82C7F3563D1ABAEE /* UserModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,10 +462,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pathfinder",
+				);
 				INFOPLIST_FILE = Pathfinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pbriss.Pathfinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Pathfinder/Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -435,10 +479,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pathfinder",
+				);
 				INFOPLIST_FILE = Pathfinder/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = pbriss.Pathfinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Pathfinder/Bridging-Header.h";
 			};
 			name = Release;
 		};
