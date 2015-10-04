@@ -1,0 +1,138 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Pathfinder API",
+        "description": "Find places to visit whenever wherever",
+        "version": "1.0.0"
+    },
+    "host": "localhost:3000",
+    "schemes": [
+        "https"
+    ],
+    "basePath": "/",
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/login": {
+            "post": {
+                "summary": "Login user in the backend",
+                "description": "When the user is authenticated using services like FB login, the auth\ntokens need to be sent to the backend so that the backend can also\nauthenticate the users.\n",
+                "parameters": [
+                    {
+                        "name": "auth",
+                        "in": "body",
+                        "description": "Login authentication object, for now contains FB auth.",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/LoginRequest"
+                        }
+                    }
+                ],
+                "tags": [
+                    "LoginRequest"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Result of login operation.",
+                        "schema": {
+                            "$ref": "#/definitions/LoginResult"
+                        }
+                    }
+                }
+            }
+        },
+        "/path/suggest": {
+            "get": {
+                "summary": "Suggest a path with certain places based on rankings and user",
+                "parameters": [
+                    {
+                        "name": "userAuthToken",
+                        "in": "header",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "tags": [
+                    "Path"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The path suggested for the user.",
+                        "schema": {
+                            "$ref": "#/definitions/Path"
+                        }
+                    },
+                    "default": {
+                        "description": "Unexpected error",
+                        "schema": {
+                            "$ref": "#/definitions/Error"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "LoginRequest": {
+            "type": "object",
+            "properties": {
+                "fb_auth_token": {
+                    "type": "string",
+                    "description": "Auth tokens returned by FB."
+                }
+            }
+        },
+        "LoginResult": {
+            "type": "object",
+            "properties": {
+                "success": {
+                    "type": "boolean",
+                    "description": "Indicates whether the login was successful."
+                },
+                "errorMessage": {
+                    "type": "string",
+                    "description": "If there was an error, this field is set."
+                },
+                "authToken": {
+                    "type": "string",
+                    "description": "The auth token that should be passed to every subsequent api call so\nthat the backend can associate the actions with a given user.\n"
+                }
+            }
+        },
+        "Path": {
+            "type": "object",
+            "properties": {
+                "places": {
+                    "type": "array",
+                    "description": "The list of places in this path. The order of the list is the order\nthat the ranking algorithm has suggested.\n",
+                    "$ref": "#/definitions/Place"
+                }
+            }
+        },
+        "Place": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Human readable name of the place (Golden Gate Bridge)"
+                }
+            }
+        },
+        "Error": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                },
+                "fields": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
