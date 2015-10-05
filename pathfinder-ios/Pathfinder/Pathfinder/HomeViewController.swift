@@ -10,20 +10,17 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
-    @IBOutlet weak var userNameLabel: UILabel!
-
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //Hide the nav bar by default
-        self.navigationController?.navigationBarHidden = true
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
 
-        let mtbc = self.tabBarController  as! MainTabBarController
-        userNameLabel.text = mtbc.userModel.userName
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = UIImage(named: "logo-light")
+        navigationItem.titleView = imageView
     }
 
     override func didReceiveMemoryWarning() {

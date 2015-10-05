@@ -10,8 +10,31 @@ import UIKit
 
 class SettingsViewController: UIViewController, FBSDKLoginButtonDelegate {
 
+    @IBOutlet weak var facebookProfilePic: UIImageView!
+    @IBOutlet weak var facebookUsername: UILabel!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        //User is logged in, show home view and set user defaults
+        if (FBSDKAccessToken.currentAccessToken() != nil) {
+            let userDefaults = NSUserDefaults.standardUserDefaults()
+
+            //Set facebook user name
+            if let username = userDefaults.objectForKey("name") as? String {
+                facebookUsername.text = username
+            }
+
+            //Set facebook profile pic
+            if let profilepic = userDefaults.objectForKey("profilepic") as? String {
+                facebookProfilePic.image = UIImage(contentsOfFile: profilepic)
+                //Circular silhouette
+                facebookProfilePic.clipsToBounds = true
+                facebookProfilePic.layer.cornerRadius = self.facebookProfilePic.frame.height/2
+                facebookProfilePic.layer.borderWidth = 2
+                facebookProfilePic.layer.borderColor = UIColor.whiteColor().CGColor
+            }
+        }
         
         // Show logout button
         let loginView : FBSDKLoginButton = FBSDKLoginButton()
@@ -48,8 +71,12 @@ class SettingsViewController: UIViewController, FBSDKLoginButtonDelegate {
 
         //Make sure to empty user defaults
         let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.removeObjectForKey("username")
+        userDefaults.removeObjectForKey("name")
         userDefaults.removeObjectForKey("email")
+        userDefaults.removeObjectForKey("profilepic")
+
+        //Dismiss current settings modal
+        self.dismissViewControllerAnimated(true, completion: nil)
 
         //Show login screen modal after logout
         self.tabBarController?.performSegueWithIdentifier("showLogin", sender: self)
@@ -60,6 +87,12 @@ class SettingsViewController: UIViewController, FBSDKLoginButtonDelegate {
         // Dispose of any resources that can be recreated.
     }
 
+
+    // MARK: - Actions
+
+    @IBAction func closeSettings(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
     /*
     // MARK: - Navigation

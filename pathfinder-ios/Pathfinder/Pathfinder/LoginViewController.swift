@@ -63,16 +63,38 @@ class LoginViewController: UIViewController, FBSDKLoginButtonDelegate {
                 print("Error: \(error)")
             }
             else {
+                print("Result: \(result)")
                 let userDefaults = NSUserDefaults.standardUserDefaults()
                 if let userName = result.valueForKey("name") as? NSString {
-                    userDefaults.setObject(userName, forKey: "username")
+                    userDefaults.setObject(userName, forKey: "name")
                 }
                 if let userEmail = result.valueForKey("email") as? NSString {
                     userDefaults.setObject(userEmail, forKey: "email")
                 }
+
+                // Get user profile pic
+                let accessToken = FBSDKAccessToken.currentAccessToken().tokenString
+                let url = "https://graph.facebook.com/me/picture?type=large&return_ssl_resources=1&access_token=\(accessToken)"
+
+                ImageLoader.sharedLoader.imageForUrl(url, completionHandler:{(image: UIImage?, url: String) in
+
+                    //Store facebook profile pic
+                    let imageData = UIImagePNGRepresentation(image!)
+
+                    let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
+                    let imagePath = documentsURL.URLByAppendingPathComponent("profile-pic_cached.png")
+
+                    if !imageData!.writeToFile(imagePath.path!, atomically: false) {
+                        print("Image NOT saved!")
+                    } else {
+                        print("Image saved!")
+                        userDefaults.setObject(imagePath.path!, forKey: "profilepic")
+                    }
+                })
+
                 userDefaults.synchronize()
                 
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismissViewControllerAnimated(false, completion: nil)
 
             }
         })

@@ -7,7 +7,8 @@ import Foundation
 
 struct UserModel {
 
-    var userName: String?
+    var name: String?
     var email: String?
+    var profilePic: NSURL?
 
 }
