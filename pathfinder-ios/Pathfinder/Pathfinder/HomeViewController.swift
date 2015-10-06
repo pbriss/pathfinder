@@ -16,11 +16,8 @@ class HomeViewController: UIViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-        imageView.contentMode = .ScaleAspectFit
-        imageView.image = UIImage(named: "logo-light")
-        navigationItem.titleView = imageView
+        
+        self.navigationController?.navigationBar.translucent = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,7 +31,6 @@ class HomeViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
-        print("Got here!")
     }
     
 
