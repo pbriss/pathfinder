@@ -12,12 +12,21 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Set logo in nav
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = UIImage(named: "logo-light")
+        
+        navigationItem.titleView = imageView
+        
+        //Set translucent bar on home screen
+        self.navigationController?.navigationBar.translucent = true
     }
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.navigationController?.navigationBar.translucent = true
     }
 
     override func didReceiveMemoryWarning() {

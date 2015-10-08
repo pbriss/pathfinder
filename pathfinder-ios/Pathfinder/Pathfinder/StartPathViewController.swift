@@ -15,7 +15,8 @@ class StartPathViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        navigationItem.title = "New path"
     }
 
     override func didReceiveMemoryWarning() {

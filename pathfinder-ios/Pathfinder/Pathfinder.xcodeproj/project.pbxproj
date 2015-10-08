@@ -27,6 +27,7 @@
 		6AD172E31BC3861300F980E3 /* DatePickerDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD172E21BC3861300F980E3 /* DatePickerDialog.swift */; settings = {ASSET_TAGS = (); }; };
 		6AD172E51BC38CAF00F980E3 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD172E41BC38CAF00F980E3 /* UIButton.swift */; settings = {ASSET_TAGS = (); }; };
 		6AD172E81BC39F5600F980E3 /* UISlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD172E71BC39F5600F980E3 /* UISlider.swift */; settings = {ASSET_TAGS = (); }; };
+		6ADE91D21BC657E50072E103 /* LocationSearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADE91D11BC657E50072E103 /* LocationSearchTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		6AE689381BC1CF5F007BE35F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE689371BC1CF5F007BE35F /* ImageLoader.swift */; settings = {ASSET_TAGS = (); }; };
 		C4B927CDCB68CEC3CD660798 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B9260FC7C41689019ED4F7 /* UILabel.swift */; };
 		C4B92930A5FFAF954BDFDE5D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B92564C66E397113B8EB83 /* UIView.swift */; };
@@ -78,6 +79,7 @@
 		6AD172E21BC3861300F980E3 /* DatePickerDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerDialog.swift; sourceTree = "<group>"; };
 		6AD172E41BC38CAF00F980E3 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		6AD172E71BC39F5600F980E3 /* UISlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UISlider.swift; sourceTree = "<group>"; };
+		6ADE91D11BC657E50072E103 /* LocationSearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTableViewController.swift; sourceTree = "<group>"; };
 		6AE689371BC1CF5F007BE35F /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		C4B920C4D386EBCEEDD37216 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		C4B92564C66E397113B8EB83 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				6ACE5DD31BBFA057005B96DA /* SettingsViewController.swift */,
 				6ACE5DD51BC0A546005B96DA /* MainNavigationViewController.swift */,
 				6AD172D71BC216B600F980E3 /* StartPathViewController.swift */,
+				6ADE91D11BC657E50072E103 /* LocationSearchTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				6ACE5DD41BBFA057005B96DA /* SettingsViewController.swift in Sources */,
 				6AE689381BC1CF5F007BE35F /* ImageLoader.swift in Sources */,
 				C4B92FCF82C7F3563D1ABAEE /* UserModel.swift in Sources */,
+				6ADE91D21BC657E50072E103 /* LocationSearchTableViewController.swift in Sources */,
 				6AD172DC1BC21DD200F980E3 /* UIColor.swift in Sources */,
 				6AD172E11BC372D800F980E3 /* AppTheme.swift in Sources */,
 				6AD172E51BC38CAF00F980E3 /* UIButton.swift in Sources */,
@@ -532,6 +536,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pbriss.Pathfinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pathfinder/Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -549,6 +554,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = pbriss.Pathfinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "Pathfinder/Bridging-Header.h";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
