@@ -17,3 +17,13 @@ class DefaultView: UIView {
     }
     
 }
+
+class BrandView: UIView {
+    
+    required init?(coder decoder: NSCoder) {
+        super.init(coder: decoder)
+        
+        backgroundColor = AppTheme.Color.Brand
+    }
+    
+}

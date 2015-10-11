@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import QuartzCore
+import Spring
 
 class DatePickerDialog: UIView {
     
@@ -89,7 +90,7 @@ class DatePickerDialog: UIView {
             delay: 0,
             options: UIViewAnimationOptions.CurveEaseInOut,
             animations: { () -> Void in
-                self.backgroundColor = UIColor(hex: "#FFFFFF", alpha: 0.8)
+                self.backgroundColor = UIColor(hexa: "#FFFFFF", alpha: 0.8)
                 self.dialogView!.layer.opacity = 1
                 self.dialogView!.layer.transform = CATransform3DMakeScale(1, 1, 1)
             },
@@ -114,7 +115,7 @@ class DatePickerDialog: UIView {
             delay: 0,
             options: UIViewAnimationOptions.TransitionNone,
             animations: { () -> Void in
-                self.backgroundColor = UIColor(hex: "#FFFFFF", alpha: 0)
+                self.backgroundColor = UIColor(hexa: "#FFFFFF", alpha: 0)
                 self.dialogView.layer.transform = CATransform3DConcat(currentTransform, CATransform3DMakeScale(0.6, 0.6, 1))
                 self.dialogView.layer.opacity = 0
             }) { (finished: Bool) -> Void in
@@ -187,7 +188,7 @@ class DatePickerDialog: UIView {
             kDatePickerDialogDefaultButtonHeight
         )
         self.cancelButton.setTitleColor(AppTheme.Color.Brand, forState: UIControlState.Normal)
-        self.cancelButton.setTitleColor(UIColor(hex: AppTheme.Color.Hex.TextDefault, alpha: 0.5), forState: UIControlState.Highlighted)
+        self.cancelButton.setTitleColor(UIColor(hexa: AppTheme.Color.Hex.TextDefault, alpha: 0.5), forState: UIControlState.Highlighted)
         self.cancelButton.layer.cornerRadius = kDatePickerDialogCornerRadius
         self.cancelButton.addTarget(self, action: "buttonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
         container.addSubview(self.cancelButton)
@@ -201,7 +202,7 @@ class DatePickerDialog: UIView {
         )
         self.doneButton.tag = kDatePickerDialogDoneButtonTag
         self.doneButton.setTitleColor(AppTheme.Color.Brand, forState: UIControlState.Normal)
-        self.doneButton.setTitleColor(UIColor(hex: AppTheme.Color.Hex.TextDefault, alpha: 0.5), forState: UIControlState.Highlighted)
+        self.doneButton.setTitleColor(UIColor(hexa: AppTheme.Color.Hex.TextDefault, alpha: 0.5), forState: UIControlState.Highlighted)
         self.doneButton.layer.cornerRadius = kDatePickerDialogCornerRadius
         self.doneButton.addTarget(self, action: "buttonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
         container.addSubview(self.doneButton)

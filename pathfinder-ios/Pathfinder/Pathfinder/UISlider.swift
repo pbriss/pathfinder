@@ -14,7 +14,7 @@ class DefaultSlider: UISlider {
         super.init(coder: decoder)
         
         minimumTrackTintColor = AppTheme.Color.Brand
-        maximumTrackTintColor = UIColor(hex: AppTheme.Color.Hex.TextDefault, alpha: 0.3)
+        maximumTrackTintColor = UIColor(hexa: AppTheme.Color.Hex.TextDefault, alpha: 0.3)
     }
     
 }

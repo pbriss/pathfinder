@@ -8,11 +8,12 @@
 
 import UIKit
 
+//NOTE: a UIColor extension is also implemented in Spring/Misc.swfit although this one supports alpha values
 extension UIColor {
-    convenience init(hex: String, alpha: CGFloat = 1) {
-        assert(hex[hex.startIndex] == "#", "Expected hex string of format #RRGGBB")
+    convenience init(hexa: String, alpha: CGFloat = 1) {
+        assert(hexa[hexa.startIndex] == "#", "Expected hex string of format #RRGGBB")
         
-        let scanner = NSScanner(string: hex)
+        let scanner = NSScanner(string: hexa)
         scanner.scanLocation = 1  // skip #
         
         var rgb: UInt32 = 0

@@ -18,11 +18,6 @@ class MainNavigationViewController: UINavigationController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
-        // If not logged in, show login modal
-        if (FBSDKAccessToken.currentAccessToken() == nil) {
-            performSegueWithIdentifier("showLogin", sender: self)
-        }
     }
 
     override func didReceiveMemoryWarning() {

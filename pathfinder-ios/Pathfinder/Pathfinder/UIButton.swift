@@ -8,6 +8,7 @@
 
 import UIKit
 import QuartzCore
+import Spring
 
 class DefaultButton: UIButton {
     
@@ -19,12 +20,15 @@ class DefaultButton: UIButton {
         layer.masksToBounds = true
         layer.cornerRadius = 2.0
     }
+}
+
+
+class FooterButton: SpringButton {
     
-    override func drawRect(rect: CGRect) {
-        updateLayerProperties()
+    required init?(coder decoder: NSCoder) {
+        super.init(coder: decoder)
+        
+        tintColor = UIColor.whiteColor()
+        backgroundColor = AppTheme.Color.Brand
     }
-    
-    func updateLayerProperties() {
-    }
-    
 }

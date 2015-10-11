@@ -6,7 +6,7 @@
 //  Copyright © 2015 Pascal Brisset. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 struct AppTheme {
     struct Color {
@@ -17,8 +17,8 @@ struct AppTheme {
             static let BackgroundDefault = "#F0F0F0"
         }
         
-        static let Brand = UIColor(hex: Hex.Brand)
-        static let TextDefault = UIColor(hex: Hex.TextDefault)
-        static let BackgroundDefault = UIColor(hex: Hex.BackgroundDefault)
+        static let Brand = UIColor(hexa: Hex.Brand)
+        static let TextDefault = UIColor(hexa: Hex.TextDefault)
+        static let BackgroundDefault = UIColor(hexa: Hex.BackgroundDefault)
     }
 }

@@ -23,7 +23,7 @@ class MutedLabel: DefaultLabel {
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
         
-        textColor = UIColor(hex: AppTheme.Color.Hex.TextDefault, alpha: 0.5)
+        textColor = UIColor(hexa: AppTheme.Color.Hex.TextDefault, alpha: 0.5)
     }
     
 }

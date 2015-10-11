@@ -73,3 +73,5 @@ xcuserdata
 *.xcuserstate
 project.xcworkspace
 Pathfinder.xcworkspace
+
+Pods

@@ -25,6 +25,7 @@ class LocationSearchTableViewController: UIViewController, UITableViewDataSource
         tableView.dataSource = self
         searchBar.delegate = self
         
+        searchBar.becomeFirstResponder()
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {
@@ -37,6 +38,7 @@ class LocationSearchTableViewController: UIViewController, UITableViewDataSource
     
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchActive = false;
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
     
     func searchBarSearchButtonClicked(searchBar: UISearchBar) {
@@ -86,11 +88,4 @@ class LocationSearchTableViewController: UIViewController, UITableViewDataSource
         
         return cell;
     }
-    
-    // MARK: - Actions
-    
-    @IBAction func closeLocationSearch() {
-        self.dismissViewControllerAnimated(true, completion: nil)
-    }
-
 }
