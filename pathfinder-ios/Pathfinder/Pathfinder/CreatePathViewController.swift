@@ -27,6 +27,7 @@ class CreatePathViewController: UIViewController, THDatePickerDelegate, UICollec
     @IBOutlet weak var numDaysCollectionView: UICollectionView!
     
     @IBOutlet weak var createPathTableView: UITableView!
+    var pathLocations = [0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -123,7 +124,6 @@ class CreatePathViewController: UIViewController, THDatePickerDelegate, UICollec
         // Update the num day collection view
         numDays = endDate.daysFrom(startDate) + 1 // +1 to include the selected end date
         numDaysCollectionView.reloadData()
-        numDaysCollectionView.reloadItemsAtIndexPaths(numDaysCollectionView.indexPathsForVisibleItems())
     }
     
     
@@ -201,19 +201,28 @@ class CreatePathViewController: UIViewController, THDatePickerDelegate, UICollec
     }
     
     // MARK: - UITableViewDataSource
-    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return section == 0 ? pathLocations.count : 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("PathLocationCell", forIndexPath: indexPath) as! PathLocationTableViewCell
-        
+        var cell: UITableViewCell!
+        if indexPath.section == 0 {
+            cell = tableView.dequeueReusableCellWithIdentifier("PathLocationCell", forIndexPath: indexPath) as! PathLocationTableViewCell
+        }
+            
+        else if indexPath.section == 1 {
+            cell = tableView.dequeueReusableCellWithIdentifier("AddPathLocationCell", forIndexPath: indexPath) as! AddPathLocationTableViewCell
+        }
         return cell
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return indexPath.section == 0 ? 200 : 120
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -221,10 +230,21 @@ class CreatePathViewController: UIViewController, THDatePickerDelegate, UICollec
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return numDaysSectionHeaderView.frame.height
+        return section == 0 ? numDaysSectionHeaderView.frame.height : 0
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return numDaysSectionHeaderView
+        return section == 0 ? numDaysSectionHeaderView : UIView()
+    }
+    
+    
+    // MARK: - Actions (UITableViewDataSource)
+    
+    @IBAction func addPathLocation(sender: AnyObject) {
+        pathLocations.append(0)
+//        createPathTableView.reloadData()
+        let newIndexPath = NSIndexPath(forRow: pathLocations.count - 1 , inSection: 0)
+        createPathTableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+        createPathTableView.scrollToRowAtIndexPath(newIndexPath, atScrollPosition: .Top, animated: true)
     }
 }

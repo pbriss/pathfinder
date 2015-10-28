@@ -339,6 +339,31 @@
                                             <outlet property="pathLocationSelectionCollectionView" destination="hi9-1m-kzA" id="SqE-54-Cfb"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="AddPathLocationCell" rowHeight="150" id="37a-Fo-kXD" customClass="AddPathLocationTableViewCell" customModule="Pathfinder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="402" width="600" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="37a-Fo-kXD" id="hlu-k1-edc">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gb9-hT-Ky9" customClass="DefaultButton" customModule="Pathfinder" customModuleProvider="target">
+                                                    <rect key="frame" x="229" y="60" width="143" height="30"/>
+                                                    <animations/>
+                                                    <state key="normal" title="Add another location"/>
+                                                    <connections>
+                                                        <action selector="addPathLocation:" destination="xey-2e-vod" eventType="touchUpInside" id="UBg-sS-5SB"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="gb9-hT-Ky9" firstAttribute="centerY" secondItem="hlu-k1-edc" secondAttribute="centerY" id="CB7-JN-YlG"/>
+                                                <constraint firstItem="gb9-hT-Ky9" firstAttribute="centerX" secondItem="hlu-k1-edc" secondAttribute="centerX" id="bxA-oD-s1N"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="0.090196078430000007" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                    </tableViewCell>
                                 </prototypes>
                                 <connections>
                                     <outlet property="dataSource" destination="xey-2e-vod" id="eRK-yc-ar3"/>
