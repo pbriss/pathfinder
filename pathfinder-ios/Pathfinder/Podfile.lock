@@ -1,10 +1,14 @@
 PODS:
   - Alamofire (3.0.0)
+  - KNSemiModalViewController_hons82 (0.4.2)
   - Spring (1.0.3)
+  - THCalendarDatePicker (1.2.4):
+    - KNSemiModalViewController_hons82 (~> 0.4.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0.0-beta.3)
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
+  - THCalendarDatePicker (~> 1.2.4)
 
 EXTERNAL SOURCES:
   Spring:
@@ -18,6 +22,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: b61782387f81bcc538a0284cf2bb5d7995cd0a80
+  KNSemiModalViewController_hons82: 14829870f13aeb056248b6de77f00135204f8c42
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
+  THCalendarDatePicker: c128a70a7b5ad01efabc6dca856f20b178da4c1d
 
 COCOAPODS: 0.39.0

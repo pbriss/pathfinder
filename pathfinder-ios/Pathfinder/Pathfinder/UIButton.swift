@@ -19,6 +19,7 @@ class DefaultButton: UIButton {
         tintColor = AppTheme.Color.Brand
         layer.masksToBounds = true
         layer.cornerRadius = 2.0
+        titleLabel?.font = UIFont.systemFontOfSize(14)
     }
 }
 

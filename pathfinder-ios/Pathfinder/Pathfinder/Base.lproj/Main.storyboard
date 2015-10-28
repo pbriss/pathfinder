@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Jwd-QI-921">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Grt-60-kfa">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -19,6 +19,7 @@
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oSG-CH-JGC">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="opD-qt-GeE"/>
                                 </constraints>
@@ -37,12 +38,14 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="smp-XZ-Wia">
                                         <rect key="frame" x="265" y="150" width="71" height="19"/>
+                                        <animations/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-light" translatesAutoresizingMaskIntoConstraints="NO" id="HUl-zh-Ezr" customClass="SpringImageView" customModule="Spring">
                                         <rect key="frame" x="250" y="36" width="100" height="100"/>
+                                        <animations/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="p9H-Ud-1M7"/>
                                             <constraint firstAttribute="width" constant="100" id="wRr-nf-EK2"/>
@@ -53,6 +56,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
                                 </subviews>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="smp-XZ-Wia" secondAttribute="bottom" constant="22" id="2QQ-a5-6HE"/>
                                     <constraint firstItem="HUl-zh-Ezr" firstAttribute="centerY" secondItem="kv3-nY-c6d" secondAttribute="centerY" constant="-9.5" id="9p8-Ye-IAr"/>
@@ -62,6 +66,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="kv3-nY-c6d" secondAttribute="trailing" constant="-20" id="5kQ-q0-seU"/>
@@ -80,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DUJ-ND-otd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2220" y="-1293"/>
+            <point key="canvasLocation" x="2196" y="-1461"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="N4D-wQ-jhJ">
@@ -93,6 +98,99 @@
                     <view key="view" contentMode="scaleToFill" id="D8f-Gr-lt5" customClass="DefaultView" customModule="Pathfinder" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="150" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pQc-ej-NwK">
+                                <rect key="frame" x="0.0" y="64" width="600" height="472"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="200" id="LhM-Vo-ZeC" customClass="LocationTableViewCell" customModule="Pathfinder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="92" width="600" height="200"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LhM-Vo-ZeC" id="mmS-zt-R9w">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aic-1E-qMh" customClass="LocationCellLabel" customModule="Pathfinder" customModuleProvider="target">
+                                                    <rect key="frame" x="246" y="89" width="108" height="21"/>
+                                                    <animations/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="Aic-1E-qMh" firstAttribute="centerY" secondItem="mmS-zt-R9w" secondAttribute="centerY" id="UZ0-M6-zfW"/>
+                                                <constraint firstItem="Aic-1E-qMh" firstAttribute="centerX" secondItem="mmS-zt-R9w" secondAttribute="centerX" id="xYq-Hb-2Uh"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="titleLabel" destination="Aic-1E-qMh" id="pCt-IP-GCA"/>
+                                            <segue destination="xey-2e-vod" kind="show" identifier="showCreatePath" id="mv6-5q-uXT"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="XSo-JS-mdH" id="ec4-EZ-ZHQ"/>
+                                    <outlet property="delegate" destination="XSo-JS-mdH" id="7ym-b6-sjD"/>
+                                </connections>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVn-fz-sWs" customClass="LocationSearchButton" customModule="Pathfinder" customModuleProvider="target">
+                                <rect key="frame" x="20" y="80" width="560" height="50"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="yOy-bQ-mfX"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="42" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Where are you going?"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideDown"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="y0O-4e-6OE" kind="presentation" id="MS9-6Q-9qy"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search-icon" translatesAutoresizingMaskIntoConstraints="NO" id="zUv-4W-pIv" customClass="SpringImageView" customModule="Spring">
+                                <rect key="frame" x="31" y="93" width="24" height="24"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="xpv-NQ-bYg"/>
+                                    <constraint firstAttribute="height" constant="24" id="yfe-mu-aHI"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="slideDown"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="force">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <animations/>
+                        <constraints>
+                            <constraint firstItem="zUv-4W-pIv" firstAttribute="centerY" secondItem="tVn-fz-sWs" secondAttribute="centerY" id="6dc-Zi-0r3"/>
+                            <constraint firstItem="tVn-fz-sWs" firstAttribute="top" secondItem="Mv7-5d-JER" secondAttribute="bottom" constant="16" id="87U-jK-6LY"/>
+                            <constraint firstItem="pQc-ej-NwK" firstAttribute="centerY" secondItem="D8f-Gr-lt5" secondAttribute="centerY" id="Etb-xe-AZr"/>
+                            <constraint firstItem="pQc-ej-NwK" firstAttribute="top" secondItem="Mv7-5d-JER" secondAttribute="bottom" id="NvU-WC-XWw"/>
+                            <constraint firstItem="tVn-fz-sWs" firstAttribute="leading" secondItem="zUv-4W-pIv" secondAttribute="trailing" constant="-35" id="Ubp-99-KXb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tVn-fz-sWs" secondAttribute="trailing" id="VdE-Ka-8GC"/>
+                            <constraint firstItem="pQc-ej-NwK" firstAttribute="centerX" secondItem="D8f-Gr-lt5" secondAttribute="centerX" id="YM8-p8-hvi"/>
+                            <constraint firstItem="pQc-ej-NwK" firstAttribute="leading" secondItem="D8f-Gr-lt5" secondAttribute="leading" id="YP3-1I-KEL"/>
+                            <constraint firstItem="tVn-fz-sWs" firstAttribute="leading" secondItem="D8f-Gr-lt5" secondAttribute="leadingMargin" id="fBD-Ny-dAp"/>
+                            <constraint firstItem="tVn-fz-sWs" firstAttribute="centerX" secondItem="D8f-Gr-lt5" secondAttribute="centerX" id="gWJ-Tp-sSS"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="2V6-4X-OC0" customClass="DefaultNavigationItem" customModule="Pathfinder" customModuleProvider="target">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="p0x-4Z-Fux">
@@ -101,10 +199,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="locationTableView" destination="pQc-ej-NwK" id="wkL-Du-D2d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b07-oX-6eK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1455" y="-500"/>
+            <point key="canvasLocation" x="1506" y="-500"/>
         </scene>
         <!--Create Path View Controller-->
         <scene sceneID="klq-AZ-kxI">
@@ -117,7 +218,141 @@
                     <view key="view" contentMode="scaleToFill" id="eXU-cj-iYD" customClass="DefaultView" customModule="Pathfinder" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="58q-Ed-ih0">
+                                <rect key="frame" x="0.0" y="64" width="600" height="472"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <inset key="scrollIndicatorInsets" minX="0.0" minY="80" maxX="0.0" maxY="0.0"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="tzX-u2-eg0">
+                                    <rect key="frame" x="0.0" y="64" width="600" height="80"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xed-g9-Vg4" customClass="DefaultButton" customModule="Pathfinder" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="15" width="300" height="52"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="52" id="FLN-w1-gZD"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <state key="normal" title="Start date"/>
+                                            <connections>
+                                                <action selector="selectStartDate:" destination="xey-2e-vod" eventType="touchUpInside" id="yx8-1I-Suu"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4RH-Ho-iHk" customClass="DefaultButton" customModule="Pathfinder" customModuleProvider="target">
+                                            <rect key="frame" x="300" y="15" width="300" height="52"/>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="52" id="r68-Y1-b8v"/>
+                                            </constraints>
+                                            <state key="normal" title="End date"/>
+                                            <connections>
+                                                <action selector="selectEndDate:" destination="xey-2e-vod" eventType="touchUpInside" id="PJx-zl-7D0"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="Xed-g9-Vg4" firstAttribute="leading" secondItem="tzX-u2-eg0" secondAttribute="leading" id="4g0-OG-lSC"/>
+                                        <constraint firstItem="Xed-g9-Vg4" firstAttribute="width" secondItem="4RH-Ho-iHk" secondAttribute="width" id="HbD-zV-vYm"/>
+                                        <constraint firstAttribute="bottom" secondItem="4RH-Ho-iHk" secondAttribute="bottom" constant="13" id="Wuh-Yw-i9e"/>
+                                        <constraint firstAttribute="bottom" secondItem="Xed-g9-Vg4" secondAttribute="bottom" constant="13" id="Zm7-bA-Syl"/>
+                                        <constraint firstItem="4RH-Ho-iHk" firstAttribute="top" secondItem="tzX-u2-eg0" secondAttribute="top" constant="15" id="b9K-F4-T1G"/>
+                                        <constraint firstAttribute="trailing" secondItem="4RH-Ho-iHk" secondAttribute="trailing" id="duS-NA-73d"/>
+                                        <constraint firstItem="4RH-Ho-iHk" firstAttribute="leading" secondItem="Xed-g9-Vg4" secondAttribute="trailing" id="p4R-Ef-TR3"/>
+                                        <constraint firstItem="Xed-g9-Vg4" firstAttribute="top" secondItem="tzX-u2-eg0" secondAttribute="top" constant="15" id="rCz-S0-i9t"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PathLocationCell" rowHeight="230" id="WTM-5g-7UZ" customClass="PathLocationTableViewCell" customModule="Pathfinder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="172" width="600" height="230"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WTM-5g-7UZ" id="lrb-aF-7Nz">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="229"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-light" translatesAutoresizingMaskIntoConstraints="NO" id="hf6-Pg-gTU">
+                                                    <rect key="frame" x="285" y="199" width="30" height="30"/>
+                                                    <animations/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="q2A-6U-xa1"/>
+                                                        <constraint firstAttribute="width" constant="30" id="whu-gU-8h4"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hi9-1m-kzA">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                                    <animations/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="J6u-hG-Ruh" customClass="CenterCellCollectionViewFlowLayout" customModule="Pathfinder" customModuleProvider="target">
+                                                        <size key="itemSize" width="600" height="198"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PathLocationSelectionCell" id="7Bi-Zu-0Ye" customClass="PathLocationSelectionCollectionViewCell" customModule="Pathfinder" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="1" width="600" height="198"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                <rect key="frame" x="0.0" y="0.0" width="600" height="198"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acO-dq-PBN" customClass="LocationCellLabel" customModule="Pathfinder" customModuleProvider="target">
+                                                                        <rect key="frame" x="285" y="89" width="30" height="21"/>
+                                                                        <animations/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <animations/>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            </view>
+                                                            <animations/>
+                                                            <constraints>
+                                                                <constraint firstItem="acO-dq-PBN" firstAttribute="centerY" secondItem="7Bi-Zu-0Ye" secondAttribute="centerY" id="Knq-fT-ijw"/>
+                                                                <constraint firstItem="acO-dq-PBN" firstAttribute="centerX" secondItem="7Bi-Zu-0Ye" secondAttribute="centerX" id="WxY-TZ-SgG"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="placeLabel" destination="acO-dq-PBN" id="zXq-ta-9Bu"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="WTM-5g-7UZ" id="mly-RB-0TR"/>
+                                                        <outlet property="delegate" destination="WTM-5g-7UZ" id="Ppd-dK-2Lr"/>
+                                                    </connections>
+                                                </collectionView>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="hi9-1m-kzA" firstAttribute="leading" secondItem="lrb-aF-7Nz" secondAttribute="leading" id="3pf-i9-GPc"/>
+                                                <constraint firstItem="hf6-Pg-gTU" firstAttribute="centerX" secondItem="lrb-aF-7Nz" secondAttribute="centerX" id="HHf-yn-G04"/>
+                                                <constraint firstItem="hi9-1m-kzA" firstAttribute="top" secondItem="lrb-aF-7Nz" secondAttribute="top" id="U6d-ly-DfK"/>
+                                                <constraint firstAttribute="bottom" secondItem="hi9-1m-kzA" secondAttribute="bottom" constant="30" id="bCO-Yx-4FM"/>
+                                                <constraint firstAttribute="trailing" secondItem="hi9-1m-kzA" secondAttribute="trailing" id="f9R-37-JmK"/>
+                                                <constraint firstItem="hf6-Pg-gTU" firstAttribute="top" secondItem="hi9-1m-kzA" secondAttribute="bottom" id="hn0-8q-7ON"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                        <connections>
+                                            <outlet property="pathLocationSelectionCollectionView" destination="hi9-1m-kzA" id="SqE-54-Cfb"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="xey-2e-vod" id="eRK-yc-ar3"/>
+                                    <outlet property="delegate" destination="xey-2e-vod" id="Qgc-0S-evx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <animations/>
+                        <constraints>
+                            <constraint firstItem="58q-Ed-ih0" firstAttribute="centerX" secondItem="eXU-cj-iYD" secondAttribute="centerX" id="Cjf-D3-2ca"/>
+                            <constraint firstItem="58q-Ed-ih0" firstAttribute="centerY" secondItem="eXU-cj-iYD" secondAttribute="centerY" id="Ja4-XH-4I5"/>
+                            <constraint firstItem="58q-Ed-ih0" firstAttribute="leading" secondItem="eXU-cj-iYD" secondAttribute="leadingMargin" constant="-20" id="QbS-fT-XaQ"/>
+                            <constraint firstItem="58q-Ed-ih0" firstAttribute="top" secondItem="rOp-Yt-XNE" secondAttribute="bottom" id="h9F-w8-1U0"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="xpZ-pH-62P" customClass="DefaultNavigationItem" customModule="Pathfinder" customModuleProvider="target">
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="QxF-4q-oNF">
@@ -126,29 +361,96 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="createPathTableView" destination="58q-Ed-ih0" id="14t-RC-pMB"/>
+                        <outlet property="endDateButton" destination="4RH-Ho-iHk" id="9BN-ls-BtN"/>
+                        <outlet property="numDaysCollectionView" destination="OnR-1E-R8u" id="RTp-iX-nqF"/>
+                        <outlet property="numDaysSectionHeaderView" destination="q9G-94-Sqt" id="K8W-hi-kbw"/>
+                        <outlet property="startDateButton" destination="Xed-g9-Vg4" id="wPs-Df-zbX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k05-cS-XfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="q9G-94-Sqt">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OnR-1E-R8u">
+                            <rect key="frame" x="8" y="0.0" width="584" height="50"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="fXu-12-H5w"/>
+                            </constraints>
+                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3QU-LA-GHt" customClass="CenterCellCollectionViewFlowLayout" customModule="Pathfinder" customModuleProvider="target">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <cells>
+                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCell" id="sfB-4Y-BKe" customClass="DayCollectionViewCell" customModule="Pathfinder" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER9-Sk-Myg">
+                                                <rect key="frame" x="16" y="14" width="18" height="21"/>
+                                                <animations/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <animations/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <animations/>
+                                    <constraints>
+                                        <constraint firstItem="ER9-Sk-Myg" firstAttribute="centerX" secondItem="sfB-4Y-BKe" secondAttribute="centerX" id="T0F-Ha-cIQ"/>
+                                        <constraint firstItem="ER9-Sk-Myg" firstAttribute="centerY" secondItem="sfB-4Y-BKe" secondAttribute="centerY" id="rr5-3c-qvR"/>
+                                    </constraints>
+                                    <connections>
+                                        <outlet property="numDayLabel" destination="ER9-Sk-Myg" id="oNO-fB-dZG"/>
+                                    </connections>
+                                </collectionViewCell>
+                            </cells>
+                            <connections>
+                                <outlet property="dataSource" destination="xey-2e-vod" id="CuE-X0-QzF"/>
+                                <outlet property="delegate" destination="xey-2e-vod" id="GJ8-5Z-uNU"/>
+                            </connections>
+                        </collectionView>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3xY-Lg-7Fg" customClass="CircleView" customModule="Pathfinder" customModuleProvider="target">
+                            <rect key="frame" x="8" y="0.0" width="50" height="50"/>
+                            <animations/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="FlP-Qj-h5h"/>
+                                <constraint firstAttribute="width" constant="50" id="fNQ-0N-8EW"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="0.090196078430000007" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="3xY-Lg-7Fg" firstAttribute="top" secondItem="q9G-94-Sqt" secondAttribute="top" id="DfA-4D-dh9"/>
+                        <constraint firstItem="OnR-1E-R8u" firstAttribute="top" secondItem="3xY-Lg-7Fg" secondAttribute="bottom" constant="100" id="ECP-ZI-mje"/>
+                        <constraint firstItem="3xY-Lg-7Fg" firstAttribute="centerX" secondItem="q9G-94-Sqt" secondAttribute="centerX" constant="-267" id="Mye-77-lzu"/>
+                        <constraint firstAttribute="bottom" secondItem="OnR-1E-R8u" secondAttribute="bottom" id="N72-Zo-Suw"/>
+                        <constraint firstItem="3xY-Lg-7Fg" firstAttribute="leading" secondItem="q9G-94-Sqt" secondAttribute="leading" constant="8" id="a0B-PT-rIT"/>
+                        <constraint firstItem="OnR-1E-R8u" firstAttribute="centerX" secondItem="q9G-94-Sqt" secondAttribute="centerX" id="cXC-Kh-fQ1"/>
+                        <constraint firstAttribute="trailing" secondItem="OnR-1E-R8u" secondAttribute="trailing" constant="8" id="emq-bC-hq8"/>
+                        <constraint firstItem="OnR-1E-R8u" firstAttribute="leading" secondItem="q9G-94-Sqt" secondAttribute="leading" constant="8" id="hGN-lF-9T0"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="constraints">
+                            <exclude reference="Mye-77-lzu"/>
+                            <exclude reference="ECP-ZI-mje"/>
+                        </mask>
+                    </variation>
+                </view>
             </objects>
-            <point key="canvasLocation" x="2220" y="-500"/>
-        </scene>
-        <!--Item 1-->
-        <scene sceneID="JhM-wc-4k1">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jwd-QI-921" customClass="MainNavigationViewController" customModule="Pathfinder" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item 1" id="LXP-n5-Umn"/>
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="tCT-Qd-jPA">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="XSo-JS-mdH" kind="relationship" relationship="rootViewController" id="qVy-5Y-p6Q"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1CL-BW-uKD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="643" y="-500"/>
+            <point key="canvasLocation" x="2435" y="-500"/>
         </scene>
         <!--Location Search Table View Controller-->
         <scene sceneID="4IU-VK-ngD">
@@ -164,10 +466,12 @@
                         <subviews>
                             <searchBar contentMode="redraw" text="" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cw4-dx-Zn7">
                                 <rect key="frame" x="10" y="28" width="580" height="44"/>
+                                <animations/>
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Reo-6g-Suj">
                                 <rect key="frame" x="0.0" y="72" width="600" height="528"/>
+                                <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="oBD-4i-C13">
@@ -176,11 +480,14 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oBD-4i-C13" id="vTK-dW-lUU">
                                             <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
                                         </tableViewCellContentView>
+                                        <animations/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Cw4-dx-Zn7" secondAttribute="trailing" constant="-10" id="54R-Za-y04"/>
@@ -195,13 +502,33 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HUz-oQ-iwg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1455" y="332"/>
+            <point key="canvasLocation" x="1506" y="360"/>
+        </scene>
+        <!--Main Navigation View Controller-->
+        <scene sceneID="7v8-p5-NVv">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Grt-60-kfa" customClass="MainNavigationViewController" customModule="Pathfinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qxL-ut-iDM" customClass="DefaultNavigationBar" customModule="Pathfinder" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XSo-JS-mdH" kind="relationship" relationship="rootViewController" id="9c2-AN-PrL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hWT-KV-xJR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="694" y="-500"/>
         </scene>
     </scenes>
     <resources>
         <image name="logo-light" width="100" height="100"/>
+        <image name="search-icon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7QB-DA-8O3"/>
+        <segue reference="pBc-4R-RMy"/>
     </inferredMetricsTieBreakers>
 </document>

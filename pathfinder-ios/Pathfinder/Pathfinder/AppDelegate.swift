@@ -16,13 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        // MARK: - Proxies
-
-        // UINavigationBar proxy
-        let navBarAppearace = UINavigationBar.appearance()
-        navBarAppearace.tintColor = AppTheme.Color.Brand
-        navBarAppearace.barTintColor = UIColor.whiteColor()
-        navBarAppearace.translucent = false
         
         return true
     }

@@ -12,7 +12,7 @@ class DefaultNavigationItem: UINavigationItem {
     
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
-        
+
     }
     
 }
