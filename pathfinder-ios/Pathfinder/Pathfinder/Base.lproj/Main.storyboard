@@ -65,12 +65,26 @@
                                     <constraint firstItem="smp-XZ-Wia" firstAttribute="centerX" secondItem="kv3-nY-c6d" secondAttribute="centerX" id="wJ5-wf-dcK"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Q6w-GJ-HVJ">
+                                <rect key="frame" x="233" y="375" width="135" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="135" id="8eJ-LN-dGk"/>
+                                    <constraint firstAttribute="height" constant="30" id="zQb-Gc-DYh"/>
+                                </constraints>
+                                <state key="normal" title="Sign in to Facebook"/>
+                                <connections>
+                                    <action selector="signInToFacebook:" destination="1dG-h5-syu" eventType="touchUpInside" id="iuy-wg-6M0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="kv3-nY-c6d" secondAttribute="trailing" constant="-20" id="5kQ-q0-seU"/>
+                            <constraint firstItem="Q6w-GJ-HVJ" firstAttribute="centerX" secondItem="O1i-MP-VSb" secondAttribute="centerX" id="8rI-be-s68"/>
                             <constraint firstItem="oSG-CH-JGC" firstAttribute="leading" secondItem="O1i-MP-VSb" secondAttribute="leading" id="9Ci-5y-Hs4"/>
+                            <constraint firstItem="Q6w-GJ-HVJ" firstAttribute="top" secondItem="kv3-nY-c6d" secondAttribute="bottom" constant="120" id="L9U-CE-yJX"/>
                             <constraint firstItem="kv3-nY-c6d" firstAttribute="top" secondItem="pGD-AE-9wB" secondAttribute="bottom" constant="44" id="MYD-bW-EJQ"/>
                             <constraint firstItem="kv3-nY-c6d" firstAttribute="leading" secondItem="O1i-MP-VSb" secondAttribute="leadingMargin" constant="-20" id="NvA-vV-n8N"/>
                             <constraint firstItem="oSG-CH-JGC" firstAttribute="top" secondItem="pGD-AE-9wB" secondAttribute="bottom" id="jlm-Jb-a0w"/>
@@ -79,6 +93,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="facebookLoginButton" destination="Q6w-GJ-HVJ" id="vYh-6h-QUw"/>
                         <outlet property="facebookProfilePic" destination="HUl-zh-Ezr" id="gOJ-kP-xn7"/>
                         <outlet property="facebookUsername" destination="smp-XZ-Wia" id="dKo-GM-W4g"/>
                     </connections>
@@ -229,7 +244,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xed-g9-Vg4" customClass="DefaultButton" customModule="Pathfinder" customModuleProvider="target">
-                                            <rect key="frame" x="0.0" y="15" width="300" height="52"/>
+                                            <rect key="frame" x="8" y="15" width="584" height="52"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="52" id="FLN-w1-gZD"/>
@@ -240,28 +255,14 @@
                                                 <action selector="selectStartDate:" destination="xey-2e-vod" eventType="touchUpInside" id="yx8-1I-Suu"/>
                                             </connections>
                                         </button>
-                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4RH-Ho-iHk" customClass="DefaultButton" customModule="Pathfinder" customModuleProvider="target">
-                                            <rect key="frame" x="300" y="15" width="300" height="52"/>
-                                            <animations/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="52" id="r68-Y1-b8v"/>
-                                            </constraints>
-                                            <state key="normal" title="End date"/>
-                                            <connections>
-                                                <action selector="selectEndDate:" destination="xey-2e-vod" eventType="touchUpInside" id="PJx-zl-7D0"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstItem="Xed-g9-Vg4" firstAttribute="leading" secondItem="tzX-u2-eg0" secondAttribute="leading" id="4g0-OG-lSC"/>
-                                        <constraint firstItem="Xed-g9-Vg4" firstAttribute="width" secondItem="4RH-Ho-iHk" secondAttribute="width" id="HbD-zV-vYm"/>
-                                        <constraint firstAttribute="bottom" secondItem="4RH-Ho-iHk" secondAttribute="bottom" constant="13" id="Wuh-Yw-i9e"/>
-                                        <constraint firstAttribute="bottom" secondItem="Xed-g9-Vg4" secondAttribute="bottom" constant="13" id="Zm7-bA-Syl"/>
-                                        <constraint firstItem="4RH-Ho-iHk" firstAttribute="top" secondItem="tzX-u2-eg0" secondAttribute="top" constant="15" id="b9K-F4-T1G"/>
-                                        <constraint firstAttribute="trailing" secondItem="4RH-Ho-iHk" secondAttribute="trailing" id="duS-NA-73d"/>
-                                        <constraint firstItem="4RH-Ho-iHk" firstAttribute="leading" secondItem="Xed-g9-Vg4" secondAttribute="trailing" id="p4R-Ef-TR3"/>
-                                        <constraint firstItem="Xed-g9-Vg4" firstAttribute="top" secondItem="tzX-u2-eg0" secondAttribute="top" constant="15" id="rCz-S0-i9t"/>
+                                        <constraint firstItem="Xed-g9-Vg4" firstAttribute="leading" secondItem="tzX-u2-eg0" secondAttribute="leading" constant="8" id="Gfx-Aa-pJn"/>
+                                        <constraint firstAttribute="bottom" secondItem="Xed-g9-Vg4" secondAttribute="bottom" constant="13" id="XaI-wX-iZW"/>
+                                        <constraint firstItem="Xed-g9-Vg4" firstAttribute="top" secondItem="tzX-u2-eg0" secondAttribute="top" constant="15" id="fps-ci-1ra"/>
+                                        <constraint firstAttribute="trailing" secondItem="Xed-g9-Vg4" secondAttribute="trailing" constant="8" id="tXe-fH-6Bq"/>
+                                        <constraint firstItem="Xed-g9-Vg4" firstAttribute="centerX" secondItem="tzX-u2-eg0" secondAttribute="centerX" id="wrP-HH-tRS"/>
                                     </constraints>
                                 </view>
                                 <prototypes>
@@ -388,92 +389,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="createPathTableView" destination="58q-Ed-ih0" id="14t-RC-pMB"/>
-                        <outlet property="endDateButton" destination="4RH-Ho-iHk" id="9BN-ls-BtN"/>
-                        <outlet property="numDaysCollectionView" destination="OnR-1E-R8u" id="RTp-iX-nqF"/>
-                        <outlet property="numDaysSectionHeaderView" destination="q9G-94-Sqt" id="K8W-hi-kbw"/>
                         <outlet property="startDateButton" destination="Xed-g9-Vg4" id="wPs-Df-zbX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k05-cS-XfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="q9G-94-Sqt">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="OnR-1E-R8u">
-                            <rect key="frame" x="8" y="0.0" width="584" height="50"/>
-                            <animations/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="fXu-12-H5w"/>
-                            </constraints>
-                            <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3QU-LA-GHt" customClass="CenterCellCollectionViewFlowLayout" customModule="Pathfinder" customModuleProvider="target">
-                                <size key="itemSize" width="50" height="50"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                            <cells>
-                                <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DayCell" id="sfB-4Y-BKe" customClass="DayCollectionViewCell" customModule="Pathfinder" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ER9-Sk-Myg">
-                                                <rect key="frame" x="16" y="14" width="18" height="21"/>
-                                                <animations/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <animations/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <animations/>
-                                    <constraints>
-                                        <constraint firstItem="ER9-Sk-Myg" firstAttribute="centerX" secondItem="sfB-4Y-BKe" secondAttribute="centerX" id="T0F-Ha-cIQ"/>
-                                        <constraint firstItem="ER9-Sk-Myg" firstAttribute="centerY" secondItem="sfB-4Y-BKe" secondAttribute="centerY" id="rr5-3c-qvR"/>
-                                    </constraints>
-                                    <connections>
-                                        <outlet property="numDayLabel" destination="ER9-Sk-Myg" id="oNO-fB-dZG"/>
-                                    </connections>
-                                </collectionViewCell>
-                            </cells>
-                            <connections>
-                                <outlet property="dataSource" destination="xey-2e-vod" id="CuE-X0-QzF"/>
-                                <outlet property="delegate" destination="xey-2e-vod" id="GJ8-5Z-uNU"/>
-                            </connections>
-                        </collectionView>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3xY-Lg-7Fg" customClass="CircleView" customModule="Pathfinder" customModuleProvider="target">
-                            <rect key="frame" x="8" y="0.0" width="50" height="50"/>
-                            <animations/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="50" id="FlP-Qj-h5h"/>
-                                <constraint firstAttribute="width" constant="50" id="fNQ-0N-8EW"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <animations/>
-                    <color key="backgroundColor" red="1" green="0.090196078430000007" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="3xY-Lg-7Fg" firstAttribute="top" secondItem="q9G-94-Sqt" secondAttribute="top" id="DfA-4D-dh9"/>
-                        <constraint firstItem="OnR-1E-R8u" firstAttribute="top" secondItem="3xY-Lg-7Fg" secondAttribute="bottom" constant="100" id="ECP-ZI-mje"/>
-                        <constraint firstItem="3xY-Lg-7Fg" firstAttribute="centerX" secondItem="q9G-94-Sqt" secondAttribute="centerX" constant="-267" id="Mye-77-lzu"/>
-                        <constraint firstAttribute="bottom" secondItem="OnR-1E-R8u" secondAttribute="bottom" id="N72-Zo-Suw"/>
-                        <constraint firstItem="3xY-Lg-7Fg" firstAttribute="leading" secondItem="q9G-94-Sqt" secondAttribute="leading" constant="8" id="a0B-PT-rIT"/>
-                        <constraint firstItem="OnR-1E-R8u" firstAttribute="centerX" secondItem="q9G-94-Sqt" secondAttribute="centerX" id="cXC-Kh-fQ1"/>
-                        <constraint firstAttribute="trailing" secondItem="OnR-1E-R8u" secondAttribute="trailing" constant="8" id="emq-bC-hq8"/>
-                        <constraint firstItem="OnR-1E-R8u" firstAttribute="leading" secondItem="q9G-94-Sqt" secondAttribute="leading" constant="8" id="hGN-lF-9T0"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="Mye-77-lzu"/>
-                            <exclude reference="ECP-ZI-mje"/>
-                        </mask>
-                    </variation>
-                </view>
             </objects>
             <point key="canvasLocation" x="2435" y="-500"/>
         </scene>
@@ -550,7 +469,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo-light" width="100" height="100"/>
+        <image name="logo-light" width="150" height="150"/>
         <image name="search-icon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>

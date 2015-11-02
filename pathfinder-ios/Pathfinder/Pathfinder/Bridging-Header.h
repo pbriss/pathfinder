@@ -9,8 +9,8 @@
 #ifndef Bridging_Header_h
 #define Bridging_Header_h
 
-//#import <FBSDKCoreKit/FBSDKCoreKit.h>
-//#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <ParseFacebookUtilsV4/PFFacebookUtils.h>
 #import <THCalendarDatePicker/THDatePickerViewController.h>
 
 #endif /* Bridging_Header_h */

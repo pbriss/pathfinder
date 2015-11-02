@@ -1,12 +1,43 @@
 PODS:
   - Alamofire (3.0.0)
+  - Bolts (1.4.0):
+    - Bolts/AppLinks (= 1.4.0)
+    - Bolts/Tasks (= 1.4.0)
+  - Bolts/AppLinks (1.4.0):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.4.0)
+  - FBSDKCoreKit (4.7.1):
+    - Bolts (~> 1.1)
+    - FBSDKCoreKit/arc (= 4.7.1)
+    - FBSDKCoreKit/no-arc (= 4.7.1)
+  - FBSDKCoreKit/arc (4.7.1):
+    - Bolts (~> 1.1)
+  - FBSDKCoreKit/no-arc (4.7.1):
+    - Bolts (~> 1.1)
+    - FBSDKCoreKit/arc
+  - FBSDKLoginKit (4.7.1):
+    - FBSDKCoreKit
+  - FBSDKShareKit (4.7.1):
+    - FBSDKCoreKit
   - KNSemiModalViewController_hons82 (0.4.2)
+  - Parse (1.9.1):
+    - Bolts/Tasks (>= 1.4.0)
+  - ParseFacebookUtilsV4 (1.9.0):
+    - Bolts/Tasks (>= 1.3.0)
+    - FBSDKCoreKit (~> 4.7)
+    - FBSDKLoginKit (~> 4.7)
+    - Parse (~> 1.9)
   - Spring (1.0.3)
   - THCalendarDatePicker (1.2.4):
     - KNSemiModalViewController_hons82 (~> 0.4.2)
 
 DEPENDENCIES:
   - Alamofire (~> 3.0.0-beta.3)
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKShareKit
+  - Parse
+  - ParseFacebookUtilsV4
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - THCalendarDatePicker (~> 1.2.4)
 
@@ -22,7 +53,13 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: b61782387f81bcc538a0284cf2bb5d7995cd0a80
+  Bolts: 0e9bce58b9b9f5e8a7a4d47b16d2fabec289072b
+  FBSDKCoreKit: 9141b70960a37930850370495fe565f4a27ac141
+  FBSDKLoginKit: c11ed3c2833472db3bb4a4aecf27af4a6f69b173
+  FBSDKShareKit: 213adf63e073f41a346b0e7a689805880dc5150e
   KNSemiModalViewController_hons82: 14829870f13aeb056248b6de77f00135204f8c42
+  Parse: 54a965c8c19a6dde90284ab654dbcc77ef8c001b
+  ParseFacebookUtilsV4: aadebfaaaf4a45bf0a0992863bf48c8fc49189e3
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   THCalendarDatePicker: c128a70a7b5ad01efabc6dca856f20b178da4c1d
 

@@ -24,10 +24,10 @@
 		6A7197441BBCE42A00065577 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6A7197421BBCE42A00065577 /* LaunchScreen.storyboard */; };
 		6A71974F1BBCE42A00065577 /* PathfinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A71974E1BBCE42A00065577 /* PathfinderTests.swift */; };
 		6A71975A1BBCE42A00065577 /* PathfinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A7197591BBCE42A00065577 /* PathfinderUITests.swift */; };
-		6A86E65E1BD48D1200883D9B /* DayCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A86E65D1BD48D1200883D9B /* DayCollectionViewCell.swift */; };
 		6A86E6611BD60B6000883D9B /* CircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A86E6601BD60B6000883D9B /* CircleView.swift */; };
 		6A86E6651BD60DA400883D9B /* CenterCellCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A86E6641BD60DA400883D9B /* CenterCellCollectionViewFlowLayout.swift */; };
 		6A86E6671BD6287200883D9B /* UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A86E6661BD6287200883D9B /* UINavigationBar.swift */; };
+		6AAFAB0D1BE6F7670030D7D6 /* ManageUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AAFAB0C1BE6F7670030D7D6 /* ManageUser.swift */; };
 		6ACE5DD01BBF88A8005B96DA /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE5DCF1BBF88A8005B96DA /* HomeViewController.swift */; };
 		6ACE5DD41BBFA057005B96DA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE5DD31BBFA057005B96DA /* SettingsViewController.swift */; };
 		6ACE5DD61BC0A546005B96DA /* MainNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ACE5DD51BC0A546005B96DA /* MainNavigationViewController.swift */; };
@@ -87,10 +87,23 @@
 		6A7197591BBCE42A00065577 /* PathfinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PathfinderUITests.swift; sourceTree = "<group>"; };
 		6A71975B1BBCE42A00065577 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6A7197831BBE3C2600065577 /* Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
-		6A86E65D1BD48D1200883D9B /* DayCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayCollectionViewCell.swift; sourceTree = "<group>"; };
 		6A86E6601BD60B6000883D9B /* CircleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleView.swift; sourceTree = "<group>"; };
 		6A86E6641BD60DA400883D9B /* CenterCellCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterCellCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
 		6A86E6661BD6287200883D9B /* UINavigationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UINavigationBar.swift; sourceTree = "<group>"; };
+		6AAFAAF21BE5AB330030D7D6 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		6AAFAAF41BE5AB3E0030D7D6 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		6AAFAAF61BE5AB440030D7D6 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		6AAFAAF81BE5AB500030D7D6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		6AAFAAFA1BE5AB570030D7D6 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		6AAFAAFC1BE5AB5C0030D7D6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		6AAFAAFE1BE5AB620030D7D6 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		6AAFAB001BE5AB670030D7D6 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		6AAFAB021BE5AB6C0030D7D6 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		6AAFAB041BE5AB710030D7D6 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		6AAFAB061BE5AB880030D7D6 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		6AAFAB081BE5AB940030D7D6 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		6AAFAB0A1BE5AE0E0030D7D6 /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		6AAFAB0C1BE6F7670030D7D6 /* ManageUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManageUser.swift; sourceTree = "<group>"; };
 		6ACE5DCF1BBF88A8005B96DA /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		6ACE5DD31BBFA057005B96DA /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		6ACE5DD51BC0A546005B96DA /* MainNavigationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationViewController.swift; sourceTree = "<group>"; };
@@ -240,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				6A86E6641BD60DA400883D9B /* CenterCellCollectionViewFlowLayout.swift */,
-				6A86E65D1BD48D1200883D9B /* DayCollectionViewCell.swift */,
 				6A1EBCBD1BDC10C30073BE42 /* PathLocationTableViewCell.swift */,
 				6A29FCA91BDDC2EB0044645E /* PathLocationSelectionCollectionViewCell.swift */,
 				6A29FCAB1BE0A4D90044645E /* AddPathLocationTableViewCell.swift */,
@@ -281,6 +293,7 @@
 			children = (
 				6AE689371BC1CF5F007BE35F /* ImageLoader.swift */,
 				6AD172E21BC3861300F980E3 /* DatePickerDialog.swift */,
+				6AAFAB0C1BE6F7670030D7D6 /* ManageUser.swift */,
 			);
 			name = Helpers;
 			sourceTree = "<group>";
@@ -310,6 +323,19 @@
 		EBA87472147D3D110C53BE02 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6AAFAB0A1BE5AE0E0030D7D6 /* Accounts.framework */,
+				6AAFAB081BE5AB940030D7D6 /* libsqlite3.tbd */,
+				6AAFAB061BE5AB880030D7D6 /* libz.tbd */,
+				6AAFAB041BE5AB710030D7D6 /* SystemConfiguration.framework */,
+				6AAFAB021BE5AB6C0030D7D6 /* StoreKit.framework */,
+				6AAFAB001BE5AB670030D7D6 /* Social.framework */,
+				6AAFAAFE1BE5AB620030D7D6 /* Security.framework */,
+				6AAFAAFC1BE5AB5C0030D7D6 /* QuartzCore.framework */,
+				6AAFAAFA1BE5AB570030D7D6 /* MobileCoreServices.framework */,
+				6AAFAAF81BE5AB500030D7D6 /* CoreLocation.framework */,
+				6AAFAAF61BE5AB440030D7D6 /* CFNetwork.framework */,
+				6AAFAAF41BE5AB3E0030D7D6 /* AudioToolbox.framework */,
+				6AAFAAF21BE5AB330030D7D6 /* CoreGraphics.framework */,
 				032E6FD38B5E0C29DC64099D /* Pods.framework */,
 			);
 			name = Frameworks;
@@ -505,6 +531,7 @@
 				6ACE5DD01BBF88A8005B96DA /* HomeViewController.swift in Sources */,
 				6AD172D81BC216B600F980E3 /* CreatePathViewController.swift in Sources */,
 				6AD172E31BC3861300F980E3 /* DatePickerDialog.swift in Sources */,
+				6AAFAB0D1BE6F7670030D7D6 /* ManageUser.swift in Sources */,
 				6ACE5DD61BC0A546005B96DA /* MainNavigationViewController.swift in Sources */,
 				6ACE5DD41BBFA057005B96DA /* SettingsViewController.swift in Sources */,
 				6AE689381BC1CF5F007BE35F /* ImageLoader.swift in Sources */,
@@ -515,7 +542,6 @@
 				6A29FCAA1BDDC2EB0044645E /* PathLocationSelectionCollectionViewCell.swift in Sources */,
 				6AD172E51BC38CAF00F980E3 /* UIButton.swift in Sources */,
 				6A1D7F841BCB3478001B7144 /* LocationSearchButton.swift in Sources */,
-				6A86E65E1BD48D1200883D9B /* DayCollectionViewCell.swift in Sources */,
 				6A1D7F801BCB03DB001B7144 /* LocationTableViewCell.swift in Sources */,
 				6A29FCAC1BE0A4D90044645E /* AddPathLocationTableViewCell.swift in Sources */,
 				6A1D7F861BCB5392001B7144 /* Location.swift in Sources */,
@@ -666,6 +692,7 @@
 			baseConfigurationReference = FA1E18E328E6050BFD604CF4 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -685,6 +712,7 @@
 			baseConfigurationReference = D53FEF60F87EA5A593881D3C /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
