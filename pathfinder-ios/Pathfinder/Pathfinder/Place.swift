@@ -1,5 +1,5 @@
 //
-//  Location.swift
+//  Place
 //  Pathfinder
 //
 //  Created by Pascal Brisset on 10/11/15.
@@ -8,19 +8,19 @@
 
 import UIKit
 
-struct Location {
+struct Place {
     
     var name: String?
     var picture: UIImage?
     
-    init(locationDict: [String: AnyObject]) {
+    init(placeDict: [String: AnyObject]) {
         
-        if let name = locationDict["name"] as? String {
+        if let name = placeDict["name"] as? String {
             self.name = name
         }
         
-        if let picture = locationDict["picture"] as? String {
-            self.picture = UIImage(named: picture)
+        if let picture = placeDict["picture"] as? NSData {
+            self.picture = UIImage(data: picture)
         }
     }
 }

@@ -12,7 +12,7 @@
 		6A1454261BD4703000AA659B /* NSDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1454251BD4703000AA659B /* NSDate.swift */; };
 		6A1D7F801BCB03DB001B7144 /* LocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D7F7F1BCB03DB001B7144 /* LocationTableViewCell.swift */; };
 		6A1D7F841BCB3478001B7144 /* LocationSearchButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D7F831BCB3478001B7144 /* LocationSearchButton.swift */; };
-		6A1D7F861BCB5392001B7144 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D7F851BCB5392001B7144 /* Location.swift */; };
+		6A1D7F861BCB5392001B7144 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D7F851BCB5392001B7144 /* Place.swift */; };
 		6A1D7F881BCB55CE001B7144 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D7F871BCB55CE001B7144 /* Locations.swift */; };
 		6A1D7F8A1BCB5C12001B7144 /* LocationCellLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1D7F891BCB5C12001B7144 /* LocationCellLabel.swift */; };
 		6A1EBCBE1BDC10C30073BE42 /* PathLocationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A1EBCBD1BDC10C30073BE42 /* PathLocationTableViewCell.swift */; };
@@ -68,7 +68,7 @@
 		6A1454251BD4703000AA659B /* NSDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSDate.swift; sourceTree = "<group>"; };
 		6A1D7F7F1BCB03DB001B7144 /* LocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationTableViewCell.swift; sourceTree = "<group>"; };
 		6A1D7F831BCB3478001B7144 /* LocationSearchButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchButton.swift; sourceTree = "<group>"; };
-		6A1D7F851BCB5392001B7144 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		6A1D7F851BCB5392001B7144 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		6A1D7F871BCB55CE001B7144 /* Locations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
 		6A1D7F891BCB5C12001B7144 /* LocationCellLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationCellLabel.swift; sourceTree = "<group>"; };
 		6A1EBCBD1BDC10C30073BE42 /* PathLocationTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathLocationTableViewCell.swift; sourceTree = "<group>"; };
@@ -233,7 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				C4B920C4D386EBCEEDD37216 /* UserModel.swift */,
-				6A1D7F851BCB5392001B7144 /* Location.swift */,
+				6A1D7F851BCB5392001B7144 /* Place.swift */,
 				6A1D7F871BCB55CE001B7144 /* Locations.swift */,
 			);
 			name = Models;
@@ -544,7 +544,7 @@
 				6A1D7F841BCB3478001B7144 /* LocationSearchButton.swift in Sources */,
 				6A1D7F801BCB03DB001B7144 /* LocationTableViewCell.swift in Sources */,
 				6A29FCAC1BE0A4D90044645E /* AddPathLocationTableViewCell.swift in Sources */,
-				6A1D7F861BCB5392001B7144 /* Location.swift in Sources */,
+				6A1D7F861BCB5392001B7144 /* Place.swift in Sources */,
 				6AD172E81BC39F5600F980E3 /* UISlider.swift in Sources */,
 				C4B92930A5FFAF954BDFDE5D /* UIView.swift in Sources */,
 				6A12CC9F1BC3A9BF00851F80 /* UINavigationItem.swift in Sources */,

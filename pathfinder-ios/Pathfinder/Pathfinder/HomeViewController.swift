@@ -12,12 +12,35 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet var locationTableView: UITableView!
     
-    let locations = Locations().items
+    var places: [Place] = []
  
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         
+        let query = PFQuery(className:"Place")
+        query.orderByAscending("name")
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                for object in objects! {
+                    let placeName = object["name"] as! String
+                    let placePicture = object["picture"] as! PFFile
+                    placePicture.getDataInBackgroundWithBlock {
+                        (imageData: NSData?, error: NSError?) -> Void in
+                        if (error == nil) {
+                            let place = Place(placeDict: ["name": placeName, "picture": imageData!])
+                            self.places.append(place)
+                            
+                            self.locationTableView.reloadData()
+                        }
+                    }
+                }
+                
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,20 +70,20 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return locations.count
+        return places.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath) as! LocationTableViewCell
         
         //Set cell content
-        let location = Location(locationDict: locations[indexPath.row])
-        cell.titleLabel.text = location.name
+        let place = places[indexPath.row]
+        cell.titleLabel.text = place.name
         
         //Set cell background
         let imageView = UIImageView(frame: CGRectMake(0, 0, cell.frame.width, cell.frame.height))
         imageView.contentMode = .ScaleAspectFill
-        imageView.image = location.picture
+        imageView.image = place.picture
         cell.backgroundView = UIView()
         cell.backgroundView!.addSubview(imageView)
         
@@ -86,8 +109,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showCreatePath" {
             if let indexPath = locationTableView.indexPathForSelectedRow {
-                let location = Location(locationDict: locations[indexPath.row])
-                (segue.destinationViewController as! CreatePathViewController).currentLocation = location.name
+                let place = places[indexPath.row]
+                (segue.destinationViewController as! CreatePathViewController).currentLocation = place.name
             }
         }
     }
