@@ -1,0 +1,93 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-input/paper-textarea.html">
+
+<script src="../../scripts/api.js"></script>
+
+<dom-module id="locations-page">
+  <template>
+    <style include="shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+      }
+      .thumbnail {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+
+    <h3>Locations</h3>
+
+    <paper-material elevation="1" class="card">
+      <h4>City input</h4>
+      <p>One city name per line</p>
+      <paper-textarea label="City line input" value="{{cityLineInput}}" type="text">
+      </paper-textarea>
+      <paper-input label="State" value="{{cityLineState}}"></paper-input>
+      <paper-input label="Country" value="{{cityLineCountry}}"></paper-input>
+      <paper-button on-tap="cityLineInputInsert">Run</paper-button>
+    </paper-material>
+
+    <paper-material elevation="1" class="card">
+      <h4>Location pictures</h4>
+      <paper-textarea label="Location picture JSON" value="{{locationPictureJSON}}" type="text">
+      </paper-textarea>
+      <paper-button on-tap="updateLocationPictures">Run</paper-button>
+    </paper-material>
+
+    <template id="locrepeat" is="dom-repeat" items="{{locations}}" as="location">
+      <paper-material elevation="1" class="card">
+        <template is="dom-if" if="{{location.thumbnail}}">
+          <img src="{{location.thumbnail}}" class="thumbnail">
+        </template>
+        <a href="/location/{{location.objectId}}">
+          {{location.name}}
+        </a>
+      </paper-material>
+    </template>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'locations-page',
+
+        properties: {
+          locations: {
+            type: Array,
+            value: () => { return []; },
+            notify: true
+          }
+        },
+
+        ready: function() {
+          this.locations = [];
+          this.api = new Api();
+          this.api.getLocations().then((res) => {
+              res.forEach(l => {
+                var obj = l.toJSON();
+                if (obj.pictures) {
+                  obj.thumbnail = obj.pictures[0].url;
+                }
+                this.push('locations', obj);
+              });
+            });
+        },
+
+        cityLineInputInsert: function() {
+          var cities = this.cityLineInput.split(/\n/).filter((line)=>line.length>0);
+          this.api.insertCitiesIfInexistent(cities, this.cityLineState, this.cityLineCountry);
+        },
+
+        updateLocationPictures: function() {
+          this.api.fileUrlToBase64_('http://cdn01.wallconvert.com/_media/wallpapers_1920x1200/1/2/uc-berkeley-sunset-california-17889.jpg', (a)=>{console.log(a)});
+        }
+      });
+    })();
+  </script>
+
+</dom-module>

@@ -1,0 +1,85 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<link rel="import" href="../parse-api.html">
+
+<dom-module id="account-page">
+  <template>
+    <style include="shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <parse-api id="api" is-logged-in="{{isLoggedIn}}"></parse-api>
+
+    <paper-material elevation="1" class="card">
+      Is logged in: {{isLoggedIn}}
+    </paper-material>
+
+    <paper-material elevation="1" class="card">
+      <paper-input label="Username" value="{{newAccount.username}}"></paper-input>
+      <paper-input label="Password" type="password" value="{{newAccount.password}}"></paper-input>
+      <paper-input label="Email" value="{{newAccount.email}}"></paper-input>
+      <paper-button on-tap="createAccount">Create account</paper-button>
+      <span>{{createAccountStatus}}</span>
+    </paper-material>
+
+    <paper-material elevation="1" class="card">
+      <paper-input label="Username" value="{{loginAccount.username}}"></paper-input>
+      <paper-input label="Password" type="password" value="{{loginAccount.password}}"></paper-input>
+      <paper-button on-tap="loginUser">Login</paper-button>
+      <span>{{loginStatus}}</span>
+    </paper-material>
+
+    <paper-material elevation="1" class="card">
+      <paper-button on-tap="logout">Logout</paper-button>
+    </paper-material>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'account-page',
+
+        ready: function() {
+          this.isLoggedIn = this.$.api.isLoggedIn;
+          this.newAccount = {};
+          this.loginAccount = {};
+        },
+
+        createAccount: function() {
+          var component = this;
+          this.$.api.createUser(this.newAccount)
+            .then(function() {
+                component.createAccountStatus = 'Success';
+                component.newAccount = {};
+              },
+              function(error){
+                console.log('Error');
+                component.createAccountStatus = 'Error: '+error.message;
+              });
+        },
+
+        loginUser: function() {
+          var component = this;
+          this.$.api.loginUser(this.loginAccount)
+            .then(function() {
+                  component.loginAccount = {};
+                },
+                function(error){
+                });;
+        },
+
+        logout: function() {
+          this.$.api.logoutUser();
+        }
+      });
+    })();
+  </script>
+
+</dom-module>

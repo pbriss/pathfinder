@@ -1,0 +1,106 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<script src="//www.parsecdn.com/js/parse-latest.min.js"></script>
+
+<dom-module id="parse-api">
+  <template>
+  </template>
+
+  <script>
+  (function() {
+  'use strict';
+
+    var isParseInitialized = false;
+
+    var AdministratorRole;
+
+    var initParseRoles = function() {
+      //Check Administrator role first
+      var query = new Parse.Query(Parse.Role);
+      query.equalTo("name", "Administrator");
+      query.first()
+      .then(function(res){
+        console.log(res);
+        if(res == undefined){
+          var roleACL = new Parse.ACL();
+          roleACL.setPublicReadAccess(true);
+          roleACL.setPublicWriteAccess(false);
+
+
+          AdministratorRole = new Parse.Role(
+          "Administrator", roleACL);
+          AdministratorRole.save().then(
+          function(res){console.log(res);},
+          function(err){console.log(err);});
+          }else{
+          AdministratorRole = res;
+        }
+      }, function(err){console.log(err);});
+    };
+
+    var initParse = function() {
+      if(isParseInitialized) return;
+
+      Parse.initialize("kvOdHosvHnOVJVhTrRjb67YxqQnrhDjkPkeGMJsj",
+      "IKUaHBuYMvcqNOuaKbyZI1Q7zbjou1qLUDDbaVzq");
+      isParseInitialized = true;
+      initParseRoles();
+    };
+
+    Polymer({
+      is: 'parse-api',
+
+      properties: {
+        isLoggedIn: {
+          type: Boolean,
+          value: false,
+          notify: true
+        },
+        currentUser: {
+          type: Object,
+          notify: true
+        }
+      },
+
+      ready: function() {
+        initParse();
+
+        this.updateUser();
+      },
+
+      updateUser: function() {
+        this.currentUser = Parse.User.current();
+        if(this.currentUser) {
+          this.isLoggedIn = true;
+          }else{
+          this.isLoggedIn = false;
+        }
+      },
+
+      createUser: function(newAccount) {
+        var component = this;
+        var user = new Parse.User(newAccount);
+        return user.signUp().
+        then(function(user){
+          component.isLoggedIn = true;
+        });
+      },
+
+      loginUser: function(user) {
+        var component = this;
+        return new Parse.User(user).logIn()
+        .then(function(user){
+          component.isLoggedIn = true;
+        }, function(err){console.log(err);});
+      },
+
+      logoutUser: function() {
+        var component = this;
+        return Parse.User.logOut()
+        .then(function(){
+          component.isLoggedIn = false;
+        });
+      }
+    });
+  })();
+  </script>
+</dom-module>

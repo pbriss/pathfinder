@@ -1,0 +1,82 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-material/paper-material.html">
+<link rel="import" href="../../bower_components/paper-button/paper-button.html">
+
+<script src="../../scripts/api.js"></script>
+
+<dom-module id="location-page">
+  <template>
+    <style include="shared-styles"></style>
+    <style>
+      :host {
+        display: block;
+      }
+      .picture {
+        width: 100px;
+        height: 100px;
+      }
+    </style>
+
+    <h3>{{locationObjJson.name}}</h3>
+    <paper-material elevation="1" class="card">
+      <input type="file" id="fileUpload">
+      <paper-button on-tap="uploadFile">Upload picture</paper-button>
+    </paper-material>
+    <paper-material elevation="1" class="card">
+      <h4>Pictures</h4>
+      <template is="dom-repeat" items="{{locationObjJson.pictures}}" as="picture">
+        <img src="{{picture.url}}" class="picture">
+      </template>
+    </paper-material>
+  </template>
+
+  <script>
+    (function() {
+      'use strict';
+
+      Polymer({
+        is: 'location-page',
+
+        properties: {
+          locationObjectId: {
+            type: String,
+            observer: 'locationChanged'
+          },
+          locationObj: {
+            type: Object,
+            notify: true
+          },
+          locationObjJson: {
+            type: Object,
+            computed: 'locationToJson(locationObj)'
+          }
+        },
+
+        ready: function() {
+          this.api = new Api();
+        },
+
+        locationChanged: function(newVal) {
+          this.api.getLocation(newVal).then(loc => {
+            this.locationObj = loc;
+          });
+        },
+
+        locationToJson: function(obj){
+          return obj.toJSON();
+        },
+
+        uploadFile: function() {
+          this.api.addPictureToLocation(
+              this.locationObjectId,
+              'locationPicture.jpg',
+              this.$.fileUpload.files[0],
+              (res) => {
+                console.log(res);
+              });
+        }
+      });
+    })();
+  </script>
+
+</dom-module>

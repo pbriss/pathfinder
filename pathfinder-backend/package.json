@@ -23,6 +23,7 @@
     "mocha": "^2.3.3",
     "morgan": "~1.6.1",
     "node-sass-middleware": "0.8.0",
+    "parse": "^1.6.5",
     "q": "^1.4.1",
     "sequelize": "^3.9.0",
     "sequelize-cli": "^1.9.1",
