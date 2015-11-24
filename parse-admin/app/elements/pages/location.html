@@ -57,9 +57,9 @@
         },
 
         locationChanged: function(newVal) {
-          this.api.getLocation(newVal).then(loc => {
+          this.api.getLocationById(newVal).then(loc => {
             this.locationObj = loc;
-          });
+            },(err)=>console.log(err));
         },
 
         locationToJson: function(obj){

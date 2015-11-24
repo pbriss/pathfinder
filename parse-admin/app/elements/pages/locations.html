@@ -34,6 +34,7 @@
       <h4>Location pictures</h4>
       <paper-textarea label="Location picture JSON" value="{{locationPictureJSON}}" type="text">
       </paper-textarea>
+      <paper-input label="Picture base url prefix" value="{{locationPicUrlPrefix}}"></paper-input>
       <paper-button on-tap="updateLocationPictures">Run</paper-button>
     </paper-material>
 
@@ -84,7 +85,7 @@
         },
 
         updateLocationPictures: function() {
-          this.api.fileUrlToBase64_('http://cdn01.wallconvert.com/_media/wallpapers_1920x1200/1/2/uc-berkeley-sunset-california-17889.jpg', (a)=>{console.log(a)});
+          this.api.uploadLocationPictures(JSON.parse(this.locationPictureJSON), this.locationPicUrlPrefix);
         }
       });
     })();

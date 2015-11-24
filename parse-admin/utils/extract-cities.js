@@ -7,13 +7,14 @@ var async = require('async');
 var Bing = require('node-bing-api')({accKey:"bdBsDaYGpn9Bfj7dXoTd3rUmMmK5tnCotL5YQXC/V8A"});
 
 var getContents = function() {
-  return fs.readFileSync('google-results/ca-cities.html', {encoding: 'utf-8'})
+  return fs.readFileSync('../google-results/ca-cities.html', {encoding: 'utf-8'})
     .split(/\r/)
     .filter((s)=>s.length>0);
 };
 
 var download = function(uri, filename, callback){
   request.head(uri, function(err, res, body){
+    if(err){console.log(err); callback(false); return;}
     console.log('content-type:', res.headers['content-type']);
     console.log('content-length:', res.headers['content-length']);
 
@@ -23,9 +24,10 @@ var download = function(uri, filename, callback){
 
 var images = {};
 var calls = [];
+var errors = [];
 
-//getContents()
-["Los Angeles"].forEach((name) => {
+getContents()
+  .forEach((name) => {
   calls.push((callback) => {
     Bing.images(name, {
       imageFilters: {
@@ -33,26 +35,33 @@ var calls = [];
         color: 'color'
       }
     }, function(err, res, body) {
+      if(err){console.log(err);
+        console.log(name);
+        errors.push(name);
+        return;}
       images[name] = [];
       var downloads = [];
-      for(let i = 0; i < 5; i++){
+      for(let i = 0; i < 10; i++){
         if(body.d.results[i]){
           let imgUrl = body.d.results[i].MediaUrl;
-          images[name].push(imgUrl);
+          let imgName = imgUrl.split('/').slice(-1)[0]
           downloads.push((downloadcallback) => {
-            download(imgUrl, imgUrl.split('/').slice(-1)[0], ()=>downloadcallback(null));
+            download(imgUrl, imgName, (bool) => {
+              if(bool == false){downloadcallback(null);return;}
+              images[name].push(imgName);
+              fs.writeFileSync('images.json', JSON.stringify(images));
+              downloadcallback(null);
+            });
           });
         }
       }
-      async.parallel(downloads, (err, res) => {callback(null);});
+      downloads.push(()=>callback());
+      async.series(downloads);
     });
   });
 });
 
-async.parallel(calls, function(err, res) {
-  if(err)console.log(err);
-  console.log(images);
-});
+async.series(calls);
 
 
 /*

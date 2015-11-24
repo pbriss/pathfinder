@@ -22,11 +22,11 @@
       query.equalTo('name', 'Administrator');
       query.first()
       .then(function(res) {
-        if (res && Parse.User.current()) {
-          console.log('Adding current user to Administrator role.');
-          res.getUsers().add(Parse.User.current());
-          res.save().then((s)=>{console.log(s)},(e)=>{console.log(e);});
-        }
+//        if (res && Parse.User.current()) {
+//          console.log('Adding current user to Administrator role.');
+//          res.getUsers().add(Parse.User.current());
+//          res.save().then((s)=>{console.log(s)},(e)=>{console.log(e);});
+//        }
         if (res === undefined) {
           var roleACL = new Parse.ACL();
           roleACL.setPublicReadAccess(true);
@@ -64,7 +64,7 @@
       (error) => {console.log(error);});
     }
 
-    getLocation(objectId) {
+    getLocationById(objectId) {
       return new Parse.Query(Location).get(objectId);
     }
 
@@ -77,15 +77,13 @@
     getLocation(name) {
       var query = new Parse.Query(Location);
       query.equalTo('name', name);
+      query.include('pictures');
       return query.first();
     }
 
     insertCitiesIfInexistent(cities, state, country) {
-      console.log('here');
       for(let city of cities){
-        console.log('here2');
         if(city.length > 0){
-          console.log('here3');
           this.getLocation(city).then((res)=>{
                 if(res) return;
                 // the city didn't exist so insert it
@@ -114,6 +112,17 @@
       };
       xhr.open('GET', url);
       xhr.send();
+    }
+
+    uploadLocationPictures(dataJson, urlPrefix) {
+      for(let loc in dataJson){
+        if(dataJson.hasOwnProperty(loc)) {
+          let val = dataJson[loc];
+          for(let imgUrl in val){
+            this.fileUrlToBase64_(imgUrl, (res) => console.log(res));
+          }
+        }
+      }
     }
   }
 
