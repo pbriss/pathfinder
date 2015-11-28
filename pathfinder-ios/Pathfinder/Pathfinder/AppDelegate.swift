@@ -25,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("kvOdHosvHnOVJVhTrRjb67YxqQnrhDjkPkeGMJsj",
             clientKey: "tNkozvXf61pvupG7eSjVNh8ZAJRUv77DtSfI2tZ6")
         
+        Location.registerSubclass()
+        
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
         return true
