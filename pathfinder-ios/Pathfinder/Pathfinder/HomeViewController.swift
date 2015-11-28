@@ -24,7 +24,7 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
             if error == nil {
                 for object in objects! {
                     let location = object as! Location
-                    let locationPicture = location.pictures[0]
+                    let locationPicture = location["pictures"][0]["file"] as! PFFile
                     
                     locationPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
                         if (error == nil) {

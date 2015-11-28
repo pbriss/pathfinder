@@ -11,7 +11,7 @@ import UIKit
 class Location: PFObject, PFSubclassing {
     
     @NSManaged var name: String!
-    @NSManaged var pictures: [PFFile]!
+    @NSManaged var pictures: [PFObject]!
     @NSManaged var city: String!
     @NSManaged var state: String!
     @NSManaged var country: String!

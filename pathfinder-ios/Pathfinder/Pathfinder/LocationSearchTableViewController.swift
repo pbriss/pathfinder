@@ -14,7 +14,7 @@ class LocationSearchTableViewController: UIViewController, UITableViewDataSource
     @IBOutlet weak var tableView: UITableView!
     
     var searchActive: Bool = false
-    var data = ["San Francisco","New York","San Jose","Chicago","Los Angeles","Austin","Seattle"]
+    var data: [String] = []
     var filtered:[String] = []
     
     override func viewDidLoad() {
@@ -26,6 +26,20 @@ class LocationSearchTableViewController: UIViewController, UITableViewDataSource
         searchBar.delegate = self
         
         searchBar.becomeFirstResponder()
+        
+        let query = Location.query()!
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                for object in objects! {
+                    let location = object as! Location
+                    self.data.append(location.name)
+                }
+                
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
     }
     
     func searchBarTextDidBeginEditing(searchBar: UISearchBar) {

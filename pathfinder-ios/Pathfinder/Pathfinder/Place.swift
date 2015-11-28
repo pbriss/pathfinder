@@ -8,19 +8,12 @@
 
 import UIKit
 
-struct Place {
+class Place: PFObject, PFSubclassing {
     
-    var name: String?
-    var picture: UIImage?
+    @NSManaged var name: String!
+    @NSManaged var picture: PFFile!
     
-    init(placeDict: [String: AnyObject]) {
-        
-        if let name = placeDict["name"] as? String {
-            self.name = name
-        }
-        
-        if let picture = placeDict["picture"] as? NSData {
-            self.picture = UIImage(data: picture)
-        }
+    class func parseClassName() -> String {
+        return "Place"
     }
 }
