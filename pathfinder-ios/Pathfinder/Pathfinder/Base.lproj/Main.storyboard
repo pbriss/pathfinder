@@ -266,7 +266,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PathLocationCell" rowHeight="230" id="WTM-5g-7UZ" customClass="PathLocationTableViewCell" customModule="Pathfinder" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PathPlaceCell" rowHeight="230" id="WTM-5g-7UZ" customClass="PathPlaceTableViewCell" customModule="Pathfinder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="172" width="600" height="230"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WTM-5g-7UZ" id="lrb-aF-7Nz">
@@ -291,15 +291,15 @@
                                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                     </collectionViewFlowLayout>
                                                     <cells>
-                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PathLocationSelectionCell" id="7Bi-Zu-0Ye" customClass="PathLocationSelectionCollectionViewCell" customModule="Pathfinder" customModuleProvider="target">
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PathPlaceSelectionCell" id="7Bi-Zu-0Ye" customClass="PathPlaceSelectionCollectionViewCell" customModule="Pathfinder" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="1" width="600" height="198"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="198"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Poo" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acO-dq-PBN" customClass="LocationCellLabel" customModule="Pathfinder" customModuleProvider="target">
-                                                                        <rect key="frame" x="285" y="89" width="30" height="21"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acO-dq-PBN" customClass="LocationCellLabel" customModule="Pathfinder" customModuleProvider="target">
+                                                                        <rect key="frame" x="279" y="89" width="42" height="21"/>
                                                                         <animations/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -320,8 +320,8 @@
                                                         </collectionViewCell>
                                                     </cells>
                                                     <connections>
-                                                        <outlet property="dataSource" destination="WTM-5g-7UZ" id="mly-RB-0TR"/>
-                                                        <outlet property="delegate" destination="WTM-5g-7UZ" id="Ppd-dK-2Lr"/>
+                                                        <outlet property="dataSource" destination="WTM-5g-7UZ" id="OE2-On-yqQ"/>
+                                                        <outlet property="delegate" destination="WTM-5g-7UZ" id="h5R-I3-x1x"/>
                                                     </connections>
                                                 </collectionView>
                                             </subviews>
@@ -337,10 +337,10 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
-                                            <outlet property="pathLocationSelectionCollectionView" destination="hi9-1m-kzA" id="SqE-54-Cfb"/>
+                                            <outlet property="pathPlaceSelectionCollectionView" destination="hi9-1m-kzA" id="wzI-mZ-Scc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="AddPathLocationCell" rowHeight="150" id="37a-Fo-kXD" customClass="AddPathLocationTableViewCell" customModule="Pathfinder" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="AddPathPlaceCell" rowHeight="150" id="37a-Fo-kXD" customClass="AddPathPlaceTableViewCell" customModule="Pathfinder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="402" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="37a-Fo-kXD" id="hlu-k1-edc">
@@ -352,7 +352,7 @@
                                                     <animations/>
                                                     <state key="normal" title="Add another location"/>
                                                     <connections>
-                                                        <action selector="addPathLocation:" destination="xey-2e-vod" eventType="touchUpInside" id="UBg-sS-5SB"/>
+                                                        <action selector="addPathPlace:" destination="xey-2e-vod" eventType="touchUpInside" id="ReP-Gu-Lqm"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

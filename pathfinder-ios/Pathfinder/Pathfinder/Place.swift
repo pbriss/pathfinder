@@ -1,5 +1,5 @@
 //
-//  Place
+//  Place.swift
 //  Pathfinder
 //
 //  Created by Pascal Brisset on 10/11/15.

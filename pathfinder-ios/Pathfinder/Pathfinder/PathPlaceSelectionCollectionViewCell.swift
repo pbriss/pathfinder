@@ -1,5 +1,5 @@
 //
-//  PathLocationSelectionCollectionViewCell.swift
+//  PathPlaceSelectionCollectionViewCell.swift
 //  Pathfinder
 //
 //  Created by Pascal Brisset on 10/25/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PathLocationSelectionCollectionViewCell: UICollectionViewCell {
+class PathPlaceSelectionCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var placeLabel: UILabel!
     

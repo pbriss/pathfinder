@@ -1,5 +1,5 @@
 //
-//  PathLocationTableViewCell.swift
+//  PathPlaceTableViewCell.swift
 //  Pathfinder
 //
 //  Created by Pascal Brisset on 10/24/15.
@@ -8,17 +8,26 @@
 
 import UIKit
 
-class PathLocationTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
+class PathPlaceTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     
-    @IBOutlet weak var pathLocationSelectionCollectionView: UICollectionView!
+    @IBOutlet weak var pathPlaceSelectionCollectionView: UICollectionView!
     
-    let locations = Locations().items
+    let places = [
+        ["name": "Barcelona", "picture": "barcelona.jpg"],
+        ["name": "Berlin", "picture": "berlin.jpg"],
+        ["name": "Hong Kong", "picture": "hongkong.jpg"],
+        ["name": "Montreal", "picture": "montreal.jpg"],
+        ["name": "New York", "picture": "newyork"],
+        ["name": "Paris", "picture": "paris.jpg"],
+        ["name": "San Francisco", "picture": "sanfrancisco"],
+        ["name": "Venice", "picture": "venice.jpg"]
+    ]
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        pathLocationSelectionCollectionView.showsHorizontalScrollIndicator = false
-        pathLocationSelectionCollectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        pathPlaceSelectionCollectionView.showsHorizontalScrollIndicator = false
+        pathPlaceSelectionCollectionView.decelerationRate = UIScrollViewDecelerationRateFast
     }
     
     // MARK: - UICollectionViewDataSource
@@ -28,21 +37,20 @@ class PathLocationTableViewCell: UITableViewCell, UICollectionViewDataSource, UI
     }
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return locations.count
+        return places.count
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PathLocationSelectionCell", forIndexPath: indexPath) as! PathLocationSelectionCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("PathPlaceSelectionCell", forIndexPath: indexPath) as! PathPlaceSelectionCollectionViewCell
    
         //Set cell content
-        let location = locations[indexPath.row]
+        let place = places[indexPath.row]
         
-        cell.placeLabel.text = location["name"]
+        cell.placeLabel.text = place["name"]
         
         //Set cell background
         let imageView = UIImageView(frame: CGRectMake(0, 0, cell.frame.width, cell.frame.height))
         imageView.contentMode = .ScaleAspectFill
-//        imageView.image = location["picture"] as UIImage
         cell.backgroundView = UIView()
         cell.backgroundView!.addSubview(imageView)
         

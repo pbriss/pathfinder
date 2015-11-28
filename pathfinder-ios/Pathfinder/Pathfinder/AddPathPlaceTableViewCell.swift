@@ -1,5 +1,5 @@
 //
-//  AddPathLocationTableViewCell.swift
+//  AddPathPlaceTableViewCell.swift
 //  Pathfinder
 //
 //  Created by Pascal Brisset on 10/27/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddPathLocationTableViewCell: UITableViewCell {
+class AddPathPlaceTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()

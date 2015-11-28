@@ -18,7 +18,7 @@ class CreatePathViewController: UIViewController, THDatePickerDelegate, UITableV
     @IBOutlet weak var startDateButton: UIButton!
     
     @IBOutlet weak var createPathTableView: UITableView!
-    var pathLocations = [0]
+    var pathPlaces = [0]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,17 +108,17 @@ class CreatePathViewController: UIViewController, THDatePickerDelegate, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? pathLocations.count : 1
+        return section == 0 ? pathPlaces.count : 1
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell: UITableViewCell!
         if indexPath.section == 0 {
-            cell = tableView.dequeueReusableCellWithIdentifier("PathLocationCell", forIndexPath: indexPath) as! PathLocationTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("PathPlaceCell", forIndexPath: indexPath) as! PathPlaceTableViewCell
         }
             
         else if indexPath.section == 1 {
-            cell = tableView.dequeueReusableCellWithIdentifier("AddPathLocationCell", forIndexPath: indexPath) as! AddPathLocationTableViewCell
+            cell = tableView.dequeueReusableCellWithIdentifier("AddPathPlaceCell", forIndexPath: indexPath) as! AddPathPlaceTableViewCell
         }
         return cell
     }
@@ -133,9 +133,9 @@ class CreatePathViewController: UIViewController, THDatePickerDelegate, UITableV
     
     // MARK: - Actions (UITableViewDataSource)
     
-    @IBAction func addPathLocation(sender: AnyObject) {
-        pathLocations.append(0)
-        let newIndexPath = NSIndexPath(forRow: pathLocations.count - 1 , inSection: 0)
+    @IBAction func addPathPlace(sender: AnyObject) {
+        pathPlaces.append(0)
+        let newIndexPath = NSIndexPath(forRow: pathPlaces.count - 1 , inSection: 0)
         createPathTableView.insertRowsAtIndexPaths([newIndexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
         createPathTableView.scrollToRowAtIndexPath(newIndexPath, atScrollPosition: .Top, animated: true)
     }
