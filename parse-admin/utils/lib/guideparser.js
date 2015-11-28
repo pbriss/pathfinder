@@ -1,3 +1,5 @@
+'use strict';
+
 import * as fs from 'fs';
 import * as async from 'async';
 import * as Q from 'q';
