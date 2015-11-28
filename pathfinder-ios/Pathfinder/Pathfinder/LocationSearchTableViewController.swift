@@ -102,4 +102,29 @@ class LocationSearchTableViewController: UIViewController, UITableViewDataSource
         
         return cell;
     }
+    
+    func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath)
+        let highlightView = UIView()
+        highlightView.backgroundColor = AppTheme.Color.Brand
+        cell?.selectedBackgroundView = highlightView
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        
+    }
+    
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showCreatePath" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let cell = tableView.cellForRowAtIndexPath(indexPath)
+                let locationName = cell!.textLabel?.text
+                (segue.destinationViewController as! CreatePathViewController).currentLocation = locationName
+            }
+        }
+    }
 }
