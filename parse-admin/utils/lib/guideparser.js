@@ -3,8 +3,10 @@
 import * as fs from 'fs';
 import * as async from 'async';
 import * as Q from 'q';
-import * as Xray from 'x-ray';
-import * as lodash from 'lodash';
+import * as _ from 'lodash';
+import {logger, logerror} from './common.js';
+
+var Xray = require('x-ray');
 
 var parseGuide = function (html, parserSpec){
   parserSpec = parserSpec || {
@@ -21,7 +23,6 @@ var parseGuide = function (html, parserSpec){
 };
 
 var mapAllGuides = function (guidesDir) {
-  console.log('here2');
   let deferred = Q.defer();
   var parserSpecFilename = guidesDir + '/parserspec.json';
   var parserSpec = fs.existsSync(parserSpecFilename) ?
@@ -32,6 +33,7 @@ var mapAllGuides = function (guidesDir) {
     .map(file => guidesDir + '/' + file)
     .map(file => parseGuide(fs.readFileSync(file), parserSpec));
   async.parallel(futures, (err, results) => {
+    logger.info('Parsing all the guides from %s is done.', guidesDir);
     if(err){
       deferred.reject(new Error(err));
     }else{
@@ -59,10 +61,10 @@ module.exports = {
   getFinalDataMap: function(guidesDir){
     guidesDir = guidesDir || __dirname + '/guides';
     return new Promise((resolve, reject) => {
-      console.log('here');
       mapAllGuides(guidesDir)
         .then((duplicates) => reduce(duplicates))
-        .then(resolve);
+        .then(resolve)
+        .catch(logerror);
     });;
   }
 };

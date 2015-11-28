@@ -1,10 +1,13 @@
-//var _     = require('lodash');
-
-//var models = require('../models');
-// var guideparser = require('../../guideparser.js');
-
 import * as guideparser from '../lib/guideparser.js';
 import * as yargs from 'yargs';
+import {logger, logerror, logparse} from '../lib/common';
+import {Location, getLocationWithId} from '../lib/parse/location';
+import {Place} from '../lib/parse/place';
+import * as async from 'async';
+import {Parse} from 'parse/node';
+
+Parse.initialize('kvOdHosvHnOVJVhTrRjb67YxqQnrhDjkPkeGMJsj',
+    'IKUaHBuYMvcqNOuaKbyZI1Q7zbjou1qLUDDbaVzq');
 
 var argv = yargs
   .usage('Usage: $0 --guidesDir [dir] [options]')
@@ -17,27 +20,25 @@ var argv = yargs
   .boolean('printOnly')
   .argv;
 
-
 guideparser.getFinalDataMap(argv.guidesDir)
   .then((data) => {
-    console.log('here');
-    console.log(data);
-  })
-  .catch(err => { console.log(err); });
+    if (argv.printOnly) {
+      logger.info(data, 'printOnly option was passed.');
+    } else if (argv.parseLocationObjectId) {
+      logger.info({locationObjectId: argv.parseLocationObjectId},
+        'Adding %s places to the given location object.', data.length);
 
-//models.sequelize.sync({force: true}).then(function(){
-//console.log("Models ready!");
-//
-//guideparser.getFinalDataMap(__dirname + '/../guides', (data) => {
-//  var tagCreated = {};
-//  _.map(data, (place) => {
-//    models.Place.create({name: place.name});
-//    place.tags
-//      .filter((tag) => !tagCreated.hasOwnProperty(tag))
-//      .forEach((tag) => {
-//        tagCreated[tag] = true;
-//        models.Tag.create({name: tag});
-//      });
-//  });
-//});
-//});
+      getLocationWithId(argv.parseLocationObjectId).then((location) => {
+        for(let key in data) {
+          if (data.hasOwnProperty(key)) {
+            let place = data[key];
+            place.location = location;
+            let parseObj = new Place(place);
+            parseObj.save(null, logparse);
+          }
+        }
+      });
+
+    }
+  })
+  .catch(logerror);
