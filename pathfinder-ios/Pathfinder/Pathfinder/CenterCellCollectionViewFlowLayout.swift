@@ -16,7 +16,7 @@ class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
             
             let cvBounds = cv.bounds
             let halfWidth = cvBounds.size.width * 0.5;
-            let proposedContentOffsetCenterX = proposedContentOffset.x + halfWidth;
+            let proposedContentOffsetCenterX = proposedContentOffset.x + halfWidth
             
             if let attributesForVisibleCells = self.layoutAttributesForElementsInRect(cvBounds) as [UICollectionViewLayoutAttributes]! {
                 
@@ -33,11 +33,11 @@ class CenterCellCollectionViewFlowLayout: UICollectionViewFlowLayout {
                         let b = candAttrs.center.x - proposedContentOffsetCenterX
                         
                         if fabsf(Float(a)) < fabsf(Float(b)) {
-                            candidateAttributes = attributes;
+                            candidateAttributes = attributes
                         }
                     }
                     else { // == First time in the loop == //
-                        candidateAttributes = attributes;
+                        candidateAttributes = attributes
                         continue;
                     }
                 }

@@ -8,26 +8,45 @@
 
 import UIKit
 
+// Delegate used to set selected place once collection view cell was pressed
+protocol PathPlaceTableViewCellDelegate {
+    func didPressOnPathPlace(place: Place)
+}
+
 class PathPlaceTableViewCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var pathPlaceSelectionCollectionView: UICollectionView!
+    var pathPlaceDelegate: PathPlaceTableViewCellDelegate?
+
+    var places: [Place] = []
     
-    let places = [
-        ["name": "Barcelona", "picture": "barcelona.jpg"],
-        ["name": "Berlin", "picture": "berlin.jpg"],
-        ["name": "Hong Kong", "picture": "hongkong.jpg"],
-        ["name": "Montreal", "picture": "montreal.jpg"],
-        ["name": "New York", "picture": "newyork"],
-        ["name": "Paris", "picture": "paris.jpg"],
-        ["name": "San Francisco", "picture": "sanfrancisco"],
-        ["name": "Venice", "picture": "venice.jpg"]
-    ]
+    // This is used to keep track for the index path of the selected table view cell which isn't the same as the index path of the selected collection view cell
+    var tableViewCellIndexPath: NSIndexPath!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         pathPlaceSelectionCollectionView.showsHorizontalScrollIndicator = false
         pathPlaceSelectionCollectionView.decelerationRate = UIScrollViewDecelerationRateFast
+        
+        // Do any additional setup after loading the view, typically from a nib
+        let query = Place.query()!
+        query.limit = 10
+        query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
+            if error == nil {
+                for object in objects! {
+                    let place = object as! Place
+                    place.orderInPath = self.tableViewCellIndexPath
+                    self.places.append(place)
+                }
+                self.pathPlaceSelectionCollectionView.reloadData()
+                
+            } else {
+                // Log details of the failure
+                print("Error: \(error!) \(error!.userInfo)")
+            }
+        }
+        
     }
     
     // MARK: - UICollectionViewDataSource
@@ -46,11 +65,12 @@ class PathPlaceTableViewCell: UITableViewCell, UICollectionViewDataSource, UICol
         //Set cell content
         let place = places[indexPath.row]
         
-        cell.placeLabel.text = place["name"]
+        cell.pathPlaceHeaderView.placeLabel.text = place.name
         
         //Set cell background
         let imageView = UIImageView(frame: CGRectMake(0, 0, cell.frame.width, cell.frame.height))
-        imageView.contentMode = .ScaleAspectFill
+        imageView.contentMode = .ScaleAspectFit
+        imageView.image = UIImage(named: "newyork.jpg")
         cell.backgroundView = UIView()
         cell.backgroundView!.addSubview(imageView)
         
@@ -61,6 +81,12 @@ class PathPlaceTableViewCell: UITableViewCell, UICollectionViewDataSource, UICol
         let itemWidth = collectionView.bounds.width
         let itemHeight = collectionView.bounds.height
         return CGSize(width: itemWidth, height: itemHeight)
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        let place = self.places[indexPath.row]
+        // Set the place to be passed back to the CreatePathViewController (or to whoever implements the protocol)
+        self.pathPlaceDelegate?.didPressOnPathPlace(place)
     }
 }
 

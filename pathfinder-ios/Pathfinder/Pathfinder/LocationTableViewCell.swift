@@ -11,6 +11,7 @@ import UIKit
 class LocationTableViewCell: UITableViewCell {
 
     @IBOutlet weak var titleLabel: LocationCellLabel!
+    @IBOutlet weak var backgroundImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,5 +23,25 @@ class LocationTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func configureCell(location: Location, indexPath: NSIndexPath) {
+        self.tag = indexPath.row
+        self.titleLabel.text = location.name
+        
+        if location["pictures"].count > 0 {
+            let locationPicture = location["pictures"][0]["file"] as! PFFile
+            
+            if location.cachedImage == nil {
+                ImageLoader.sharedLoader.imageForUrl(locationPicture.url!, completionHandler: { (image, url) -> () in
+                    if self.tag == indexPath.row {
+                        location.cachedImage = image
+                        self.backgroundImageView.image = image
+                    }
+                })
+            }
+            else {
+                self.backgroundImageView.image = location.cachedImage
+            }
+        }
+    }
 }

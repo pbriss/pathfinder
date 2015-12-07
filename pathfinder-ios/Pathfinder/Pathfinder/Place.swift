@@ -12,6 +12,7 @@ class Place: PFObject, PFSubclassing {
     
     @NSManaged var name: String!
     @NSManaged var picture: PFFile!
+    var orderInPath: NSIndexPath?
     
     class func parseClassName() -> String {
         return "Place"

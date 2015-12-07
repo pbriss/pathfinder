@@ -18,6 +18,16 @@ class DefaultLabel: UILabel {
     
 }
 
+class BrandLabel: UILabel {
+    
+    required init?(coder decoder: NSCoder) {
+        super.init(coder: decoder)
+        
+        textColor = AppTheme.Color.Brand
+    }
+    
+}
+
 class MutedLabel: DefaultLabel {
     
     required init?(coder decoder: NSCoder) {

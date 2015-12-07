@@ -12,28 +12,18 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
 
     @IBOutlet var locationTableView: UITableView!
     
-    var locations: [HomeLocation] = []
+    var locations: [Location] = []
  
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
         
         let query = Location.query()!
-        query.orderByAscending("name")
+        query.limit = 10
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
-                for object in objects! {
-                    let location = object as! Location
-                    let locationPicture = location["pictures"][0]["file"] as! PFFile
-                    
-                    locationPicture.getDataInBackgroundWithBlock { (imageData: NSData?, error: NSError?) -> Void in
-                        if (error == nil) {
-                            let homeLocation = HomeLocation(dict: ["name": location.name, "picture": imageData!])
-                            self.locations.append(homeLocation)
-                            self.locationTableView.reloadData()
-                        }
-                    }
-                }
+                self.locations.appendContentsOf(objects as! [Location])
+                self.locationTableView.reloadData()
                 
             } else {
                 // Log details of the failure
@@ -53,12 +43,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         //Set logo in nav
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
         imageView.contentMode = .ScaleAspectFit
-        imageView.image = UIImage(named: "logo-white")
+        imageView.image = UIImage(named: "logo-light")
         
         navigationItem.titleView = imageView
         
         //Set table attributes
-        self.locationTableView.rowHeight = 200
+        self.locationTableView.rowHeight = 180
         self.locationTableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
     
@@ -75,16 +65,8 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("LocationCell", forIndexPath: indexPath) as! LocationTableViewCell
         
-        //Set cell content
         let location = locations[indexPath.row]
-        cell.titleLabel.text = location.name
-        
-        //Set cell background
-        let imageView = UIImageView(frame: CGRectMake(0, 0, cell.frame.width, cell.frame.height))
-        imageView.contentMode = .ScaleAspectFill
-        imageView.image = location.picture
-        cell.backgroundView = UIView()
-        cell.backgroundView!.addSubview(imageView)
+        cell.configureCell(location, indexPath: indexPath)
         
         return cell
     }
@@ -95,11 +77,9 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         highlightView.backgroundColor = AppTheme.Color.Brand
         cell?.selectedBackgroundView = highlightView
     }
-    
-    
+
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-
     }
     
     // MARK: - Navigation
