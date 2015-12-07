@@ -1,0 +1,16 @@
+{
+	"comment": "",
+	"ignore": "test",
+	"package": [
+		{
+			"path": "github.com/facebookgo/parse",
+			"revision": "835ea0b939739c3ef4b6346797f7ef7f01be32c0",
+			"revisionTime": "2015-10-19T09:36:40-07:00"
+		},
+		{
+			"path": "github.com/manki/flickgo",
+			"revision": "87341b2dbd9370ac110ac4b37d4fd8f890c099a6",
+			"revisionTime": "2015-12-06T20:29:48-08:00"
+		}
+	]
+}
