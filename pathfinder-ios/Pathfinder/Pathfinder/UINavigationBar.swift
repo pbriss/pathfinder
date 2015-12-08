@@ -13,8 +13,8 @@ class DefaultNavigationBar: UINavigationBar {
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
         
-        barTintColor = AppTheme.Color.Brand
-        tintColor = UIColor.whiteColor()
+        barTintColor = UIColor.whiteColor()
+        tintColor = AppTheme.Color.Brand
         translucent = false
     }
     

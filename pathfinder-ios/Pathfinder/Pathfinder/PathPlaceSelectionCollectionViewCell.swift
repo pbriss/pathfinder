@@ -9,8 +9,8 @@
 import UIKit
 
 class PathPlaceSelectionCollectionViewCell: UICollectionViewCell {
-
-    @IBOutlet weak var placeLabel: UILabel!
+    
+    @IBOutlet weak var pathPlaceHeaderView: PathPlaceHeaderView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

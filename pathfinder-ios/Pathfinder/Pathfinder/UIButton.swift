@@ -15,7 +15,7 @@ class DefaultButton: UIButton {
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
         
-        backgroundColor = UIColor.whiteColor()
+//        backgroundColor = UIColor.whiteColor()
         tintColor = AppTheme.Color.Brand
         layer.masksToBounds = true
         layer.cornerRadius = 2.0
@@ -24,12 +24,14 @@ class DefaultButton: UIButton {
 }
 
 
-class FooterButton: SpringButton {
+class FloatingBackButton: SpringButton {
     
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
         
         tintColor = UIColor.whiteColor()
         backgroundColor = AppTheme.Color.Brand
+        layer.cornerRadius = 0.5 * frame.width
+        titleLabel?.font =  UIFont.systemFontOfSize(0.5 * frame.width)
     }
 }

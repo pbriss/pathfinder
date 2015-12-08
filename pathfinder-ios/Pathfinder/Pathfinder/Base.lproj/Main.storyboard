@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Grt-60-kfa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Grt-60-kfa">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -123,9 +124,13 @@
                                         <rect key="frame" x="0.0" y="92" width="600" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LhM-Vo-ZeC" id="mmS-zt-R9w">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="199.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O2V-ZH-CWT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                                    <animations/>
+                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="San Francisco" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aic-1E-qMh" customClass="LocationCellLabel" customModule="Pathfinder" customModuleProvider="target">
                                                     <rect key="frame" x="246" y="89" width="108" height="21"/>
                                                     <animations/>
@@ -136,12 +141,17 @@
                                             </subviews>
                                             <animations/>
                                             <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="O2V-ZH-CWT" secondAttribute="trailing" constant="-8" id="6gh-dx-jTn"/>
+                                                <constraint firstItem="O2V-ZH-CWT" firstAttribute="leading" secondItem="mmS-zt-R9w" secondAttribute="leadingMargin" constant="-8" id="RaQ-aO-K1o"/>
                                                 <constraint firstItem="Aic-1E-qMh" firstAttribute="centerY" secondItem="mmS-zt-R9w" secondAttribute="centerY" id="UZ0-M6-zfW"/>
+                                                <constraint firstItem="O2V-ZH-CWT" firstAttribute="top" secondItem="mmS-zt-R9w" secondAttribute="topMargin" constant="-8" id="cRd-7p-LXI"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="O2V-ZH-CWT" secondAttribute="bottom" constant="-8" id="ttj-lb-RK6"/>
                                                 <constraint firstItem="Aic-1E-qMh" firstAttribute="centerX" secondItem="mmS-zt-R9w" secondAttribute="centerX" id="xYq-Hb-2Uh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <animations/>
                                         <connections>
+                                            <outlet property="backgroundImageView" destination="O2V-ZH-CWT" id="aaF-Vk-7oV"/>
                                             <outlet property="titleLabel" destination="Aic-1E-qMh" id="pCt-IP-GCA"/>
                                             <segue destination="xey-2e-vod" kind="show" identifier="showCreatePath" id="mv6-5q-uXT"/>
                                         </connections>
@@ -234,13 +244,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="58q-Ed-ih0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="58q-Ed-ih0">
                                 <rect key="frame" x="0.0" y="64" width="600" height="472"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="scrollIndicatorInsets" minX="0.0" minY="80" maxX="0.0" maxY="0.0"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="tzX-u2-eg0">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="80"/>
+                                    <rect key="frame" x="0.0" y="64" width="600" height="80"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xed-g9-Vg4" customClass="DefaultButton" customModule="Pathfinder" customModuleProvider="target">
@@ -266,15 +276,15 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PathPlaceCell" rowHeight="230" id="WTM-5g-7UZ" customClass="PathPlaceTableViewCell" customModule="Pathfinder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="108" width="600" height="230"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="PathPlaceCell" rowHeight="150" id="WTM-5g-7UZ" customClass="PathPlaceTableViewCell" customModule="Pathfinder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="172" width="600" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WTM-5g-7UZ" id="lrb-aF-7Nz">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="229"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="150"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo-light" translatesAutoresizingMaskIntoConstraints="NO" id="hf6-Pg-gTU">
-                                                    <rect key="frame" x="285" y="199" width="30" height="30"/>
+                                                    <rect key="frame" x="285" y="120" width="30" height="30"/>
                                                     <animations/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="30" id="q2A-6U-xa1"/>
@@ -282,7 +292,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="hi9-1m-kzA">
-                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="199"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="120"/>
                                                     <animations/>
                                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="J6u-hG-Ruh" customClass="CenterCellCollectionViewFlowLayout" customModule="Pathfinder" customModuleProvider="target">
                                                         <size key="itemSize" width="600" height="198"/>
@@ -292,30 +302,46 @@
                                                     </collectionViewFlowLayout>
                                                     <cells>
                                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PathPlaceSelectionCell" id="7Bi-Zu-0Ye" customClass="PathPlaceSelectionCollectionViewCell" customModule="Pathfinder" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="1" width="600" height="198"/>
+                                                            <rect key="frame" x="0.0" y="-39" width="600" height="198"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="198"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acO-dq-PBN" customClass="LocationCellLabel" customModule="Pathfinder" customModuleProvider="target">
-                                                                        <rect key="frame" x="279" y="89" width="42" height="21"/>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tdY-sk-fJh" customClass="PathPlaceHeaderView" customModule="Pathfinder" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="600" height="40"/>
+                                                                        <subviews>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="acO-dq-PBN">
+                                                                                <rect key="frame" x="20" y="9" width="42" height="21"/>
+                                                                                <animations/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                        </subviews>
                                                                         <animations/>
-                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                                        <nil key="highlightedColor"/>
-                                                                    </label>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="acO-dq-PBN" firstAttribute="leading" secondItem="tdY-sk-fJh" secondAttribute="leading" constant="20" id="Jek-YV-Nv4"/>
+                                                                            <constraint firstItem="acO-dq-PBN" firstAttribute="centerY" secondItem="tdY-sk-fJh" secondAttribute="centerY" id="NrH-dE-ZGb"/>
+                                                                            <constraint firstAttribute="height" constant="40" id="d8x-CX-lby"/>
+                                                                        </constraints>
+                                                                        <connections>
+                                                                            <outlet property="placeLabel" destination="acO-dq-PBN" id="YXN-HB-IG4"/>
+                                                                        </connections>
+                                                                    </view>
                                                                 </subviews>
                                                                 <animations/>
                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                             </view>
                                                             <animations/>
                                                             <constraints>
-                                                                <constraint firstItem="acO-dq-PBN" firstAttribute="centerY" secondItem="7Bi-Zu-0Ye" secondAttribute="centerY" id="Knq-fT-ijw"/>
-                                                                <constraint firstItem="acO-dq-PBN" firstAttribute="centerX" secondItem="7Bi-Zu-0Ye" secondAttribute="centerX" id="WxY-TZ-SgG"/>
+                                                                <constraint firstAttribute="trailingMargin" secondItem="tdY-sk-fJh" secondAttribute="trailing" constant="-8" id="W2b-wA-qSj"/>
+                                                                <constraint firstAttribute="leadingMargin" secondItem="tdY-sk-fJh" secondAttribute="leading" constant="8" id="XRn-85-WzQ"/>
+                                                                <constraint firstItem="tdY-sk-fJh" firstAttribute="top" secondItem="7Bi-Zu-0Ye" secondAttribute="topMargin" constant="-8" id="eFY-Eg-vve"/>
                                                             </constraints>
                                                             <connections>
-                                                                <outlet property="placeLabel" destination="acO-dq-PBN" id="zXq-ta-9Bu"/>
+                                                                <outlet property="pathPlaceHeaderView" destination="tdY-sk-fJh" id="B07-aH-VMY"/>
                                                             </connections>
                                                         </collectionViewCell>
                                                     </cells>
@@ -340,19 +366,19 @@
                                             <outlet property="pathPlaceSelectionCollectionView" destination="hi9-1m-kzA" id="wzI-mZ-Scc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="AddPathPlaceCell" rowHeight="150" id="37a-Fo-kXD" customClass="AddPathPlaceTableViewCell" customModule="Pathfinder" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="338" width="600" height="150"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="AddPathPlaceCell" rowHeight="100" id="37a-Fo-kXD" customClass="AddPathPlaceTableViewCell" customModule="Pathfinder" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="322" width="600" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="37a-Fo-kXD" id="hlu-k1-edc">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="149"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="99.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gb9-hT-Ky9" customClass="DefaultButton" customModule="Pathfinder" customModuleProvider="target">
-                                                    <rect key="frame" x="229" y="60" width="143" height="30"/>
+                                                    <rect key="frame" x="229" y="35" width="143" height="30"/>
                                                     <animations/>
                                                     <state key="normal" title="Add another location"/>
                                                     <connections>
-                                                        <action selector="addPathPlace:" destination="xey-2e-vod" eventType="touchUpInside" id="ReP-Gu-Lqm"/>
+                                                        <action selector="addPathPlaces:" destination="xey-2e-vod" eventType="touchUpInside" id="gsd-xI-xqy"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -390,11 +416,87 @@
                     <connections>
                         <outlet property="createPathTableView" destination="58q-Ed-ih0" id="14t-RC-pMB"/>
                         <outlet property="startDateButton" destination="Xed-g9-Vg4" id="wPs-Df-zbX"/>
+                        <segue destination="ZdC-BX-90u" kind="presentation" identifier="showPlaceDetails" animates="NO" id="dfH-Iy-f2V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k05-cS-XfO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2435" y="-500"/>
+        </scene>
+        <!--Place Details View Controller-->
+        <scene sceneID="JJS-G7-gXr">
+            <objects>
+                <viewController id="ZdC-BX-90u" customClass="PlaceDetailsViewController" customModule="Pathfinder" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="dOU-4X-nfu"/>
+                        <viewControllerLayoutGuide type="bottom" id="n3y-w1-xsT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Ao2-fX-6x8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dMY-lA-w8A">
+                                <rect key="frame" x="4" y="20" width="592" height="333"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dMY-lA-w8A" secondAttribute="height" multiplier="16:9" id="M1s-NG-sxB"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5oT-gL-nHp" customClass="BrandLabel" customModule="Pathfinder" customModuleProvider="target">
+                                <rect key="frame" x="15" y="376" width="91.5" height="20.5"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ElI-fi-zSc" customClass="FloatingBackButton" customModule="Pathfinder">
+                                <rect key="frame" x="15" y="548" width="40" height="40"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="0Hq-nG-1UI"/>
+                                    <constraint firstAttribute="height" constant="40" id="uRX-aE-KTW"/>
+                                </constraints>
+                                <state key="normal" title="&lt;"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="x">
+                                        <real key="value" value="-100"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scaleX">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="scaleY">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="xey-2e-vod" kind="presentation" identifier="hidePlaceDetails" animates="NO" id="ans-9b-YfN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dMY-lA-w8A" firstAttribute="leading" secondItem="Ao2-fX-6x8" secondAttribute="leadingMargin" constant="-16" id="An2-QW-Tc2"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="5oT-gL-nHp" secondAttribute="leading" constant="5" id="CDk-7g-nZU"/>
+                            <constraint firstItem="n3y-w1-xsT" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dMY-lA-w8A" secondAttribute="bottom" priority="750" constant="8" symbolic="YES" id="Cvz-5O-Kr9"/>
+                            <constraint firstItem="ElI-fi-zSc" firstAttribute="leading" secondItem="Ao2-fX-6x8" secondAttribute="leadingMargin" constant="-5" id="GcF-1Z-AYM"/>
+                            <constraint firstItem="n3y-w1-xsT" firstAttribute="top" secondItem="ElI-fi-zSc" secondAttribute="bottom" constant="12" id="Udi-cc-4R7"/>
+                            <constraint firstItem="dMY-lA-w8A" firstAttribute="top" secondItem="dOU-4X-nfu" secondAttribute="bottom" id="lUX-oU-KMa"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dMY-lA-w8A" secondAttribute="trailing" constant="-16" id="mKk-yw-38Q"/>
+                            <constraint firstItem="5oT-gL-nHp" firstAttribute="top" secondItem="dMY-lA-w8A" secondAttribute="bottom" constant="23" id="tOD-08-ae0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="ElI-fi-zSc" id="XEP-Np-a1p"/>
+                        <outlet property="placeImageView" destination="dMY-lA-w8A" id="cpE-8H-IwI"/>
+                        <outlet property="placeNameLabel" destination="5oT-gL-nHp" id="rg3-3j-cnu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VRF-J4-aCP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2428" y="512"/>
         </scene>
         <!--Location Search Table View Controller-->
         <scene sceneID="4IU-VK-ngD">
@@ -422,7 +524,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oBD-4i-C13" id="vTK-dW-lUU">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <animations/>
                                         </tableViewCellContentView>
@@ -476,7 +578,7 @@
         <image name="search-icon" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="7QB-DA-8O3"/>
-        <segue reference="XxG-kG-ATY"/>
+        <segue reference="ans-9b-YfN"/>
+        <segue reference="pBc-4R-RMy"/>
     </inferredMetricsTieBreakers>
 </document>
