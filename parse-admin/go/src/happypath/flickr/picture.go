@@ -16,8 +16,8 @@ type Pictures []Picture
 
 func GetPictures(name string, n int) (Pictures, error) {
 	r, err := client.Search(map[string]string{
-		"text":     name,
-		"tags":     name,
+		"text": name,
+		//		"tags":     name,
 		"sort":     "relevance",
 		"media":    "photos",
 		"per_page": strconv.Itoa(n),

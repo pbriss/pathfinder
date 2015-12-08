@@ -1,6 +1,7 @@
 package hapi
 
 import (
+	"log"
 	"net/url"
 )
 
@@ -9,8 +10,7 @@ type Place struct {
 	Name            string   `json:"name"`
 	Tags            []string `json:"tags,omitempty"`
 	Pictures        Pictures `json:"pictures,omitempty"`
-	LocationPointer Pointer  `json:"location,omitempty"`
-	Test            string   `json:"cooltest,omitempty"`
+	LocationPointer *Pointer `json:"location,omitempty"`
 }
 
 type Places []Place
@@ -40,10 +40,20 @@ func GetAllPlacesWithoutPics() (Places, error) {
 	return res.Results, err
 }
 
+func (p *Place) PrependPicture(pic Picture) {
+	p.Pictures = append(Pictures{pic}, p.Pictures...)
+}
+
 func (p *Place) Update() (*UpdateObjectResult, error) {
+	log.Printf("Updated place %+v\n", p)
+	temp := p.LocationPointer
+	// pointers are updated differently. when it's included in this
+	// update call, it causes api error at parse. so set it nil before.
+	p.LocationPointer = nil
 	var res UpdateObjectResult
 	_, err := client.Put(&url.URL{
 		Path: "classes/Place/" + p.ID,
 	}, p, &res)
+	p.LocationPointer = temp
 	return &res, err
 }

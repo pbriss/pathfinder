@@ -13,18 +13,13 @@ type File struct {
 	URL  string `json:"url"`
 }
 
-type UploadResult struct {
-	URL  string `json:"url"`
-	Name string `json:"name"`
-}
-
 type FetchResult struct {
 	ContentType string
 	Body        []byte
 }
 
 // UploadFileToParse
-func UploadFileToParse(data []byte, filename, contentType string) (*UploadResult, error) {
+func UploadFileToParse(data []byte, filename, contentType string) (*File, error) {
 	req, err := http.NewRequest("POST", "https://api.parse.com/1/files/"+filename, bytes.NewReader(data))
 	req.Header.Set("Content-Type", contentType)
 	req.Header.Set("X-Parse-Application-Id", creds.ApplicationID)
@@ -37,7 +32,7 @@ func UploadFileToParse(data []byte, filename, contentType string) (*UploadResult
 	}
 	defer resp.Body.Close()
 
-	ur := &UploadResult{}
+	ur := &File{}
 	if err := json.NewDecoder(resp.Body).Decode(ur); err != nil {
 		return ur, err
 	}
