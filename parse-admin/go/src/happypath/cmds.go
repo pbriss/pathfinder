@@ -1,16 +1,44 @@
 package main
 
 import (
-	"fmt"
 	"happypath/flickr"
 	"happypath/hapi"
 	"log"
 )
 
+func UpdateLocationPicturesFromFlickr() error {
+	res, err := hapi.GetAllLocations()
+	if err != nil {
+		return err
+	}
+
+	for _, p := range res {
+		log.Printf("Getting pictures for %s.\n", p.Name)
+		pics, err := flickr.GetPictures(p.Name, 15)
+		if err != nil {
+			return err
+		}
+		log.Printf("Got %d pictures for %s, uploading to Parse.\n", len(pics), p.Name)
+		for _, pic := range pics {
+			hp, err := hapi.UploadPictureFromFlickr(pic)
+			if err != nil {
+				return err
+			}
+			p.PrependPicture(*hp)
+		}
+		log.Printf("Updating Parse object for %s with the pictures: %+v.\n", p.Name, p.Pictures)
+		if _, err := (&p).Update(); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func UpdatePlacesPicturesFromFlickr() error {
 	res, err := hapi.GetAllPlacesWithoutPics()
 	if err != nil {
-		fmt.Printf(err.Error())
+		return err
 	}
 
 	for _, p := range res {

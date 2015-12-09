@@ -9,7 +9,7 @@ func main() {
 	//	if err != nil {
 	//		fmt.Printf(err.Error())
 	//	}
-	err := FixPicsTypes()
+	err := UpdateLocationPicturesFromFlickr()
 	if err != nil {
 		fmt.Printf(err.Error())
 	}
