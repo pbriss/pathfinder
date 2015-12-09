@@ -20,7 +20,15 @@ func GetAllPlaces() (Places, error) {
 	var res struct {
 		Results Places `json:"results"`
 	}
-	_, err := client.Get(&url.URL{Path: "classes/Place"}, &res)
+
+	cond := url.Values{}
+	cond.Set("include", "pictures")
+	cond.Set("limit", "1000")
+
+	_, err := client.Get(&url.URL{
+		Path:     "classes/Place",
+		RawQuery: cond.Encode(),
+	}, &res)
 	return res.Results, err
 }
 
@@ -45,7 +53,7 @@ func (p *Place) PrependPicture(pic Picture) {
 }
 
 func (p *Place) Update() (*UpdateObjectResult, error) {
-	log.Printf("Updated place %+v\n", p)
+	log.Printf("Updated place %s\n", p.Name)
 	temp := p.LocationPointer
 	// pointers are updated differently. when it's included in this
 	// update call, it causes api error at parse. so set it nil before.

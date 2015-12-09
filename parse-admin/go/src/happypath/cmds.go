@@ -35,3 +35,23 @@ func UpdatePlacesPicturesFromFlickr() error {
 
 	return nil
 }
+
+func FixPicsTypes() error {
+	res, err := hapi.GetAllPlaces()
+	if err != nil {
+		return err
+	}
+
+	for _, pl := range res {
+		final := hapi.Pictures{}
+		for _, p := range pl.Pictures {
+			if p.File.URL != "" {
+				p.File.Type = "File"
+				final = append(final, p)
+			}
+		}
+		pl.Pictures = final
+		pl.Update()
+	}
+	return nil
+}

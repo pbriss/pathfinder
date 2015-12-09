@@ -9,6 +9,7 @@ import (
 )
 
 type File struct {
+	Type string `json:"__type"`
 	Name string `json:"name"`
 	URL  string `json:"url"`
 }
@@ -32,7 +33,7 @@ func UploadFileToParse(data []byte, filename, contentType string) (*File, error)
 	}
 	defer resp.Body.Close()
 
-	ur := &File{}
+	ur := &File{Type: "File"}
 	if err := json.NewDecoder(resp.Body).Decode(ur); err != nil {
 		return ur, err
 	}
