@@ -31,17 +31,20 @@ class LocationTableViewCell: UITableViewCell {
         if location["pictures"].count > 0 {
             let locationPicture = location["pictures"][0]["file"] as! PFFile
             
-            if location.cachedImage == nil {
+            if location.mainPicture == nil {
                 ImageLoader.sharedLoader.imageForUrl(locationPicture.url!, completionHandler: { (image, url) -> () in
                     if self.tag == indexPath.row {
-                        location.cachedImage = image
+                        location.mainPicture = image
                         self.backgroundImageView.image = image
                     }
                 })
             }
             else {
-                self.backgroundImageView.image = location.cachedImage
+                self.backgroundImageView.image = location.mainPicture
             }
+        }
+        else {
+            self.backgroundImageView.image = UIImage(named: "newyork.jpg")
         }
     }
 }

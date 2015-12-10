@@ -39,7 +39,14 @@ class CreatePathViewController: UIViewController, THDatePickerDelegate, UITableV
     func configureView() {
         if let location = currentLocation {
             navigationItem.title = location
+            self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "OpenSans", size: 16)!,  NSForegroundColorAttributeName: AppTheme.Color.Brand]
         }
+        
+        
+        let backButton = UIBarButtonItem(title: String.icomoonWithName(Icomoon.Back), style: UIBarButtonItemStyle.Plain, target: self, action: nil)
+        navigationItem.leftBarButtonItem?.setTitleTextAttributes([NSFontAttributeName: UIFont.icomoonOfSize(18)], forState: UIControlState.Normal)
+        navigationItem.leftBarButtonItem = backButton
+        
         
         startDateButton.setTitle("Today", forState: UIControlState.Normal)
         
@@ -168,7 +175,7 @@ class CreatePathViewController: UIViewController, THDatePickerDelegate, UITableV
             let imageFrame = CGRectMake(superFrame.origin.x, superFrame.origin.y, tableView.frame.width, aspectRatioHeight)
             let imageView = UIImageView(frame: imageFrame)
             imageView.contentMode = .ScaleAspectFill
-            imageView.image = UIImage(named: "newyork.jpg")
+            imageView.image = selectedPlace.mainPicture
             imageView.layer.zPosition = 2
             self.view.addSubview(imageView)
             

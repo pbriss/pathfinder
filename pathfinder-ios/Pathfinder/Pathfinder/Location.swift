@@ -15,7 +15,8 @@ class Location: PFObject, PFSubclassing {
     @NSManaged var city: String!
     @NSManaged var state: String!
     @NSManaged var country: String!
-    var cachedImage: UIImage?
+    
+    var mainPicture: UIImage?
     
     class func parseClassName() -> String {
         return "Location"

@@ -32,11 +32,19 @@ class PathPlaceTableViewCell: UITableViewCell, UICollectionViewDataSource, UICol
         // Do any additional setup after loading the view, typically from a nib
         let query = Place.query()!
         query.limit = 10
+        query.whereKeyExists("pictures")
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 for object in objects! {
                     let place = object as! Place
                     place.orderInPath = self.tableViewCellIndexPath
+                    
+                    let placePicture = place["pictures"]![0]["file"] as! PFFile
+                    
+                    ImageLoader.sharedLoader.imageForUrl(placePicture.url!, completionHandler: { (image, url) -> () in
+                        place.mainPicture = image
+                    })
+                    
                     self.places.append(place)
                 }
                 self.pathPlaceSelectionCollectionView.reloadData()
@@ -70,7 +78,7 @@ class PathPlaceTableViewCell: UITableViewCell, UICollectionViewDataSource, UICol
         //Set cell background
         let imageView = UIImageView(frame: CGRectMake(0, 0, cell.frame.width, cell.frame.height))
         imageView.contentMode = .ScaleAspectFit
-        imageView.image = UIImage(named: "newyork.jpg")
+        imageView.image = place.mainPicture
         cell.backgroundView = UIView()
         cell.backgroundView!.addSubview(imageView)
         

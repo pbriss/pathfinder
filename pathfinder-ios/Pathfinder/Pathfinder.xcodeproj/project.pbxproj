@@ -42,6 +42,12 @@
 		6ADE91D41BC8BFAB0072E103 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 6ADE91D31BC8BFAB0072E103 /* Podfile */; };
 		6ADF7CBF1C13C4E2000AD69E /* PathPlaceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6ADF7CBE1C13C4E2000AD69E /* PathPlaceHeaderView.swift */; };
 		6AE689381BC1CF5F007BE35F /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE689371BC1CF5F007BE35F /* ImageLoader.swift */; };
+		6AF082171C1524C50054FB26 /* Icomoon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AF082161C1524C50054FB26 /* Icomoon.swift */; };
+		6AF0822C1C1529CC0054FB26 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AF0822A1C1529CC0054FB26 /* OpenSans-Light.ttf */; };
+		6AF0822D1C1529CC0054FB26 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AF0822B1C1529CC0054FB26 /* OpenSans-Regular.ttf */; };
+		6AF082301C1529E10054FB26 /* icomoon.svg in Resources */ = {isa = PBXBuildFile; fileRef = 6AF0822E1C1529E10054FB26 /* icomoon.svg */; };
+		6AF082311C1529E10054FB26 /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6AF0822F1C1529E10054FB26 /* icomoon.ttf */; };
+		6AF082331C1529FC0054FB26 /* icomoon.py in Resources */ = {isa = PBXBuildFile; fileRef = 6AF082321C1529FC0054FB26 /* icomoon.py */; };
 		C4B927CDCB68CEC3CD660798 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B9260FC7C41689019ED4F7 /* UILabel.swift */; };
 		C4B92930A5FFAF954BDFDE5D /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4B92564C66E397113B8EB83 /* UIView.swift */; };
 /* End PBXBuildFile section */
@@ -119,6 +125,12 @@
 		6ADE91D31BC8BFAB0072E103 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6ADF7CBE1C13C4E2000AD69E /* PathPlaceHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathPlaceHeaderView.swift; sourceTree = "<group>"; };
 		6AE689371BC1CF5F007BE35F /* ImageLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
+		6AF082161C1524C50054FB26 /* Icomoon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Icomoon.swift; sourceTree = "<group>"; };
+		6AF0822A1C1529CC0054FB26 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		6AF0822B1C1529CC0054FB26 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		6AF0822E1C1529E10054FB26 /* icomoon.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = icomoon.svg; sourceTree = "<group>"; };
+		6AF0822F1C1529E10054FB26 /* icomoon.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = icomoon.ttf; sourceTree = "<group>"; };
+		6AF082321C1529FC0054FB26 /* icomoon.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = icomoon.py; sourceTree = "<group>"; };
 		C4B92564C66E397113B8EB83 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		C4B9260FC7C41689019ED4F7 /* UILabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		D53FEF60F87EA5A593881D3C /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +189,7 @@
 		6A7197381BBCE42900065577 /* Pathfinder */ = {
 			isa = PBXGroup;
 			children = (
+				6ADF7CC01C1514A4000AD69E /* Fonts */,
 				6AD172DD1BC36E8000F980E3 /* Helpers */,
 				6A7197691BBCF8B100065577 /* Models */,
 				6A7197671BBCF89900065577 /* Views */,
@@ -314,6 +327,35 @@
 			name = UI;
 			sourceTree = "<group>";
 		};
+		6ADF7CC01C1514A4000AD69E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				6AF082151C1524AE0054FB26 /* Icomoon */,
+				6ADF7CC11C1514AC000AD69E /* OpenSans */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		6ADF7CC11C1514AC000AD69E /* OpenSans */ = {
+			isa = PBXGroup;
+			children = (
+				6AF0822A1C1529CC0054FB26 /* OpenSans-Light.ttf */,
+				6AF0822B1C1529CC0054FB26 /* OpenSans-Regular.ttf */,
+			);
+			name = OpenSans;
+			sourceTree = "<group>";
+		};
+		6AF082151C1524AE0054FB26 /* Icomoon */ = {
+			isa = PBXGroup;
+			children = (
+				6AF082321C1529FC0054FB26 /* icomoon.py */,
+				6AF0822E1C1529E10054FB26 /* icomoon.svg */,
+				6AF0822F1C1529E10054FB26 /* icomoon.ttf */,
+				6AF082161C1524C50054FB26 /* Icomoon.swift */,
+			);
+			name = Icomoon;
+			sourceTree = "<group>";
+		};
 		CDC17A816549EDE06752872C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,6 +456,7 @@
 				TargetAttributes = {
 					6A7197351BBCE42900065577 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = P3R3273CQZ;
 					};
 					6A7197491BBCE42A00065577 = {
 						CreatedOnToolsVersion = 7.0;
@@ -451,8 +494,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6A7197441BBCE42A00065577 /* LaunchScreen.storyboard in Resources */,
+				6AF082301C1529E10054FB26 /* icomoon.svg in Resources */,
 				6A7197411BBCE42A00065577 /* Assets.xcassets in Resources */,
+				6AF082311C1529E10054FB26 /* icomoon.ttf in Resources */,
 				6ADE91D41BC8BFAB0072E103 /* Podfile in Resources */,
+				6AF0822C1C1529CC0054FB26 /* OpenSans-Light.ttf in Resources */,
+				6AF082331C1529FC0054FB26 /* icomoon.py in Resources */,
+				6AF0822D1C1529CC0054FB26 /* OpenSans-Regular.ttf in Resources */,
 				6A71973F1BBCE42A00065577 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -528,6 +576,7 @@
 			files = (
 				6A86E6611BD60B6000883D9B /* CircleView.swift in Sources */,
 				6A86E6671BD6287200883D9B /* UINavigationBar.swift in Sources */,
+				6AF082171C1524C50054FB26 /* Icomoon.swift in Sources */,
 				6A1454261BD4703000AA659B /* NSDate.swift in Sources */,
 				6A71973A1BBCE42A00065577 /* AppDelegate.swift in Sources */,
 				6A86E6651BD60DA400883D9B /* CenterCellCollectionViewFlowLayout.swift in Sources */,
@@ -697,6 +746,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -717,6 +767,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

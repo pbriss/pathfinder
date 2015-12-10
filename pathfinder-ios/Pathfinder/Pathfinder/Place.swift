@@ -11,7 +11,9 @@ import UIKit
 class Place: PFObject, PFSubclassing {
     
     @NSManaged var name: String!
-    @NSManaged var picture: PFFile!
+    @NSManaged var pictures: [PFObject]!
+    
+    var mainPicture: UIImage?
     var orderInPath: NSIndexPath?
     
     class func parseClassName() -> String {

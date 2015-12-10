@@ -13,7 +13,7 @@ class LocationCellLabel: UILabel {
         super.init(coder: decoder)
         
         textColor = UIColor.whiteColor()
-        font = UIFont(name: "HelveticaNeue-Light", size: 24.0)
+        font = UIFont(name: font.fontName, size: 32)
         layer.shadowColor = UIColor(hex: "#000000").CGColor
         layer.shadowOffset = CGSizeMake(0, 0)
         layer.shadowOpacity = 0.9

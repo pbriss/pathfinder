@@ -16,10 +16,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         configureView()
         
         let query = Location.query()!
         query.limit = 10
+        query.whereKeyExists("pictures")
         query.findObjectsInBackgroundWithBlock { (objects: [PFObject]?, error: NSError?) -> Void in
             if error == nil {
                 self.locations.appendContentsOf(objects as! [Location])
@@ -41,14 +43,10 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
     func configureView() {
         
         //Set logo in nav
-        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 32, height: 32))
-        imageView.contentMode = .ScaleAspectFit
-        imageView.image = UIImage(named: "logo-light")
-        
-        navigationItem.titleView = imageView
-        
+        navigationItem.title = String.icomoonWithName(Icomoon.Logo)
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont.icomoonOfSize(24),  NSForegroundColorAttributeName: AppTheme.Color.Brand]
+//        
         //Set table attributes
-        self.locationTableView.rowHeight = 180
         self.locationTableView.separatorStyle = UITableViewCellSeparatorStyle.None
     }
     
@@ -69,6 +67,12 @@ class HomeViewController: UIViewController, UITableViewDelegate, UITableViewData
         cell.configureCell(location, indexPath: indexPath)
         
         return cell
+    }
+    
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        let aspectRatioHeight = tableView.frame.width * 9 / 16
+        return aspectRatioHeight
     }
     
     func tableView(tableView: UITableView, didHighlightRowAtIndexPath indexPath: NSIndexPath) {

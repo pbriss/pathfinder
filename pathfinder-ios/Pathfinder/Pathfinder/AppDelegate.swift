@@ -31,6 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         PFFacebookUtils.initializeFacebookWithApplicationLaunchOptions(launchOptions)
         
+        let systemFont = UIFont(name: "OpenSans", size: 12)
+        UILabel.appearance().font = systemFont
+        UINavigationBar.appearance().titleTextAttributes = [ NSFontAttributeName: systemFont!]
+        //UIBarButtonItem.appearance().setTitleTextAttributes([NSFontAttributeName: UIFont.icomoonOfSize(18)], forState: UIControlState.Normal)
+        
         return true
     }
     

@@ -32,6 +32,7 @@ class FloatingBackButton: SpringButton {
         tintColor = UIColor.whiteColor()
         backgroundColor = AppTheme.Color.Brand
         layer.cornerRadius = 0.5 * frame.width
-        titleLabel?.font =  UIFont.systemFontOfSize(0.5 * frame.width)
+        self.setTitle(String.icomoonWithName(Icomoon.Back), forState: UIControlState.Normal)
+        self.titleLabel?.font = UIFont.icomoonOfSize(0.5 * frame.width)
     }
 }

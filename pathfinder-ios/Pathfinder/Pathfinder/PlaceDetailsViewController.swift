@@ -21,7 +21,7 @@ class PlaceDetailsViewController: UIViewController {
         
         if let place = currentPlace {
             placeNameLabel.text = place.name
-            placeImageView.image = UIImage(named: "newyork.jpg")//place.picture
+            placeImageView.image = place.mainPicture
         }
         
         backButton.alpha = 0
