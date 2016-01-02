@@ -3,7 +3,7 @@
 import React from 'react-native';
 import { Icon } from 'react-native-icons';
 import { Actions } from 'react-native-router-flux';
-import Theme from '../../../vars/theme';
+import { Theme } from 'app-libs';
 
 const {
 Component,

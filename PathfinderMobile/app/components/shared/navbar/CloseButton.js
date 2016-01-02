@@ -2,8 +2,8 @@
 
 import React from 'react-native';
 import { Icon } from 'react-native-icons';
-import Theme from '../../../vars/theme';
 import { Actions } from 'react-native-router-flux';
+import { Theme } from 'app-libs';
 
 const {
 Component,

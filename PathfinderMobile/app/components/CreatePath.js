@@ -7,7 +7,8 @@ import { Actions } from 'react-native-router-flux';
 import Swiper from 'react-native-swiper';
 import NavigationBar from 'react-native-navbar';
 import BackButton from './shared/navbar/BackButton';
-import Theme from '../vars/theme';
+import TitleLabel from './shared/navbar/TitleLabel';
+import { Theme, Styles } from 'app-libs';
 import SettingsButton from './shared/navbar/SettingsButton';
 
 const {
@@ -75,7 +76,7 @@ export default class CreatePath extends Component {
         return (
         <View style={styles.container}>
             <NavigationBar
-                title={{title: this.props.location.get('name')}}
+                title={<TitleLabel title={this.props.location.get('name')} />}
                 leftButton={<BackButton />}
                 rightButton={<SettingsButton />} />
             <ListView
@@ -91,7 +92,11 @@ export default class CreatePath extends Component {
     renderRow() {
         return (
         <View>
-            <Swiper showsPagination={false} style={styles.rowContainer} height={200}>
+            <Swiper
+            showsPagination={false}
+            style={styles.rowContainer}
+            height={200}
+            onMomentumScrollEnd ={this._onMomentumScrollEnd}>
                 {this.state.places.map(function(place, i){
                     return (
                     <TouchableHighlight
@@ -127,12 +132,23 @@ export default class CreatePath extends Component {
         underlayColor={'transparent'}
         onPress={this.addRow.bind(this)}>
             <View style={styles.rowContainer}>
-                <Text style={[styles.label, styles.locationLabel]}>Add place</Text>
+                <Text style={styles.locationLabel}>Add place</Text>
             </View>
         </TouchableHighlight>
         );
     }
 
+    //
+    // Swiper
+    //
+    _onMomentumScrollEnd(e, state, context) {
+        console.log(state, context.state);
+    }
+
+
+    //
+    // Loading
+    //
     renderLoadingView() {
         return (
         <View style={[styles.container, styles.loadingContainer]}>
@@ -149,8 +165,7 @@ export default class CreatePath extends Component {
 
 var styles = StyleSheet.create({
     container: {
-        flex:1,
-        backgroundColor: Theme.color.defaultBg
+        ...Styles.defaults.container,
     },
     loadingContainer: {
         alignItems: 'center',
@@ -168,6 +183,7 @@ var styles = StyleSheet.create({
         justifyContent:'center'
     },
     locationLabel: {
+        ...Styles.defaults.label,
         fontSize: 20,
         alignSelf: 'center',
         marginTop: 10,

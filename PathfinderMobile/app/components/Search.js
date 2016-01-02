@@ -5,7 +5,7 @@ import Parse from 'parse/react-native';
 import { Icon } from 'react-native-icons';
 import { Actions } from 'react-native-router-flux';
 import NavigationBar from 'react-native-navbar';
-import Theme from '../vars/theme';
+import { Theme, Styles } from 'app-libs';
 
 const {
 Component,
@@ -122,6 +122,7 @@ var styles = StyleSheet.create({
         borderBottomColor: '#ddd'
     },
     searchInput: {
+        ...Styles.defaults.label,
         flex: 0.8,
         color: Theme.color.brand,
         paddingLeft: 20
@@ -160,6 +161,7 @@ var styles = StyleSheet.create({
         flex: 1,
     },
     resultTitle: {
+        ...Styles.defaults.label,
         marginLeft: 12,
         fontSize: 16
     }

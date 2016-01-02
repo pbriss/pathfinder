@@ -5,8 +5,9 @@ import Parse from 'parse/react-native';
 import { Icon } from 'react-native-icons';
 import { Actions } from 'react-native-router-flux';
 import NavigationBar from 'react-native-navbar';
-import Theme from '../vars/theme';
+import { Theme, Styles } from 'app-libs';
 import SettingsButton from './shared/navbar/SettingsButton';
+import TitleLabel from './shared/navbar/TitleLabel';
 
 const {
 Component,
@@ -70,7 +71,7 @@ export default class Home extends Component {
         return (
         <View style={styles.container}>
             <NavigationBar
-            title={{title:'HappyPath'}}
+            title={<TitleLabel title={'HappyPath'} />}
             rightButton={<SettingsButton />} />
             <ListView
             dataSource={this.state.dataSource}
@@ -105,7 +106,7 @@ export default class Home extends Component {
                 <Image
                 source={{uri: location.get('pictures')[0].file._url}}
                 style={styles.rowBackground}>
-                    <Text style={[styles.label, styles.locationLabel]}>{location.get('name')}</Text>
+                    <Text style={styles.locationLabel}>{location.get('name')}</Text>
                 </Image>
             </View>
         </TouchableHighlight>
@@ -135,8 +136,7 @@ class SearchText extends Component {
 
 var styles = StyleSheet.create({
     container: {
-        flex:1,
-        backgroundColor: Theme.color.defaultBg
+        ...Styles.defaults.container
     },
     loadingContainer: {
         alignItems: 'center',
@@ -167,6 +167,7 @@ var styles = StyleSheet.create({
         height: 16
     },
     searchButtonText: {
+        ...Styles.defaults.label,
         flex:0.9,
         color: '#58595D',
         opacity: 0.6
@@ -183,6 +184,7 @@ var styles = StyleSheet.create({
         justifyContent:'center'
     },
     locationLabel: {
+        ...Styles.defaults.label,
         fontSize: 20,
         alignSelf: 'center',
         marginTop: 10,

@@ -3,6 +3,6 @@
 export default class Theme {
 	static color = {
 		brand: '#FF1744',
-		defaultBg: '#F5FCFF',
+		defaultBg: '#F0F0F0',
 	};
 }
