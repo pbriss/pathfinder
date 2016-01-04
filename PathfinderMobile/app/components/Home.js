@@ -40,11 +40,11 @@ export default class Home extends Component {
 
     fetchData() {
         var query = new Parse.Query('Location').limit(10);
-        var self = this;
+        var _this = this;
         query.find({
             success: function(results) {
-                self.setState({
-                    dataSource: self.state.dataSource.cloneWithRows(results),
+                _this.setState({
+                    dataSource: _this.state.dataSource.cloneWithRows(results),
                     loaded: true
                 });
             },

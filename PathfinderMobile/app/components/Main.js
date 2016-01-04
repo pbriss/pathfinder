@@ -15,7 +15,6 @@ StatusBarIOS
 //Views
 import Home from './Home';
 import Settings from './Settings';
-import Login from './Login';
 import Search from './Search';
 import CreatePath from './CreatePath';
 
@@ -36,7 +35,6 @@ export default class Main extends Component {
 
                 <Route name="home" component={Home} />
                 <Route name="settings" component={Settings} schema="modal"/>
-                <Route name="login" component={Login} schema="modal"/>
                 <Route name="search" component={Search} schema="modal" />
                 <Route name="createpath" component={CreatePath} />
             </Router>

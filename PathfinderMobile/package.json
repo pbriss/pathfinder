@@ -11,6 +11,7 @@
     "react-native": "^0.17.0",
     "react-native-blur": "^0.7.8",
     "react-native-cli": "^0.1.7",
+    "react-native-facebook-login": "^1.0.2",
     "react-native-fbsdkcore": "0.0.7",
     "react-native-fbsdklogin": "0.0.7",
     "react-native-icons": "^0.7.0",
