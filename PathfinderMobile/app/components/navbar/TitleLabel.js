@@ -10,7 +10,7 @@ StyleSheet,
 Text
 } = React;
 
-export default class TitleLabel extends Component{
+export default class NavTitleLabel extends Component{
 
     static propTypes = {
         title: PropTypes.string

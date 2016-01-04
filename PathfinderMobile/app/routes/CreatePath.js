@@ -6,10 +6,10 @@ import { Icon } from 'react-native-icons';
 import { Actions } from 'react-native-router-flux';
 import Swiper from 'react-native-swiper';
 import NavigationBar from 'react-native-navbar';
-import BackButton from './shared/navbar/BackButton';
-import TitleLabel from './shared/navbar/TitleLabel';
+
+//App modules
+import { NavBackButton, NavSettingsButton, NavTitleLabel } from 'app-components';
 import { Theme, Styles } from 'app-libs';
-import SettingsButton from './shared/navbar/SettingsButton';
 
 const {
 Component,
@@ -31,8 +31,11 @@ export default class CreatePath extends Component {
             dataSource: new ListView.DataSource({
                 rowHasChanged: (row1, row2) => row1 !== row2,
             }),
+            bounceValue: new Animated.Value(1),
+            rows: [0],
             places: [],
             loaded: false,
+            isScrolling: false,
         };
     }
 
@@ -50,7 +53,7 @@ export default class CreatePath extends Component {
         query.find({
             success: function(results) {
                 self.setState({
-                    dataSource: self.state.dataSource.cloneWithRows([0]),
+                    dataSource: self.state.dataSource.cloneWithRows(self.state.rows),
                     places: results,
                     loaded: true
                 });
@@ -62,9 +65,20 @@ export default class CreatePath extends Component {
     }
 
     addRow() {
+        var newArray = this.state.rows;
+        newArray.push(this.state.rows.length);
         this.setState({
-            dataSource: this.state.dataSource.cloneWithRows([0,0])
+            dataSource: this.state.dataSource.cloneWithRows(newArray)
         });
+
+        this.state.bounceValue.setValue(0.8);
+        Animated.spring(
+        this.state.bounceValue,
+        {
+            toValue: 1,
+            friction: 1,
+        }
+        ).start();
 
     }
 
@@ -76,9 +90,9 @@ export default class CreatePath extends Component {
         return (
         <View style={styles.container}>
             <NavigationBar
-                title={<TitleLabel title={this.props.location.get('name')} />}
-                leftButton={<BackButton />}
-                rightButton={<SettingsButton />} />
+                title={<NavTitleLabel title={this.props.location.get('name')} />}
+                leftButton={<NavBackButton />}
+                rightButton={<NavSettingsButton />} />
             <ListView
             dataSource={this.state.dataSource}
             renderRow={this.renderRow.bind(this)}
@@ -89,14 +103,22 @@ export default class CreatePath extends Component {
         );
     }
 
+    getRowAnimation() {
+        return {
+            transform: [{
+                scale: this.state.bounceValue
+            }]
+        };
+    }
+
     renderRow() {
         return (
-        <View>
+        <Animated.View style={this.getRowAnimation()}>
             <Swiper
             showsPagination={false}
             style={styles.rowContainer}
             height={200}
-            onMomentumScrollEnd ={this._onMomentumScrollEnd}>
+            onMomentumScrollEnd={this._onMomentumScrollEnd.bind(this)}>
                 {this.state.places.map(function(place, i){
                     return (
                     <TouchableHighlight
@@ -107,7 +129,7 @@ export default class CreatePath extends Component {
                             <Image
                             source={{uri: place.get('pictures')[0].file._url}}
                             style={styles.rowBackground}>
-                                <Text style={[styles.label, styles.locationLabel]}>{place.get('name')}</Text>
+                                <Text style={styles.locationLabel}>{place.get('name')}</Text>
                             </Image>
                         </View>
                     </TouchableHighlight>
@@ -118,11 +140,11 @@ export default class CreatePath extends Component {
                 <Icon
                 name='fontawesome|code-fork'
                 size={32}
-                color={Theme.color.brand}
-                style={styles.icon}
+                color={this.state.isScrolling ? '#222' : Theme.color.brand}
+                style={[styles.icon, this.state.isScrolling ? styles.searchButtonCollapsed : []]}
                 />
             </View>
-        </View>
+        </Animated.View>
         );
     }
 
@@ -131,8 +153,8 @@ export default class CreatePath extends Component {
         <TouchableHighlight
         underlayColor={'transparent'}
         onPress={this.addRow.bind(this)}>
-            <View style={styles.rowContainer}>
-                <Text style={styles.locationLabel}>Add place</Text>
+            <View style={styles.addRowContainer}>
+                <Text style={styles.addLabel}>Add place to your path</Text>
             </View>
         </TouchableHighlight>
         );
@@ -141,8 +163,15 @@ export default class CreatePath extends Component {
     //
     // Swiper
     //
+    _onMomentumScrollBegin(e, state, context) {
+        this.setState({
+            isScrolling: true
+        });
+    }
     _onMomentumScrollEnd(e, state, context) {
-        console.log(state, context.state);
+        this.setState({
+            isScrolling: state.isScrolling
+        });
     }
 
 
@@ -196,7 +225,7 @@ var styles = StyleSheet.create({
     },
     separatorContainer: {
         flex: 1,
-        height:30,
+        height:25,
         justifyContent:'center',
         alignSelf: 'center',
     },
@@ -204,5 +233,20 @@ var styles = StyleSheet.create({
         width: 32,
         height: 32,
         backgroundColor: 'transparent'
-    }
+    },
+
+    //Footer
+    addRowContainer: {
+        height:100,
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderWidth: 2,
+        borderColor: Theme.color.brand
+    },
+    addLabel: {
+        ...Styles.defaults.label,
+        fontSize: 14,
+        color: Theme.color.brand,
+    },
+
 });

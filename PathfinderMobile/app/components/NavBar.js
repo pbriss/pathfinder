@@ -1,3 +1,7 @@
+//
+// NOT CURRENTLY BEING USED
+//
+
 'use strict';
 
 var NavigationBar = require('react-native-navbar');

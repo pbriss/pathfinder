@@ -11,12 +11,12 @@ StyleSheet,
 TouchableHighlight
 } = React;
 
-export default class SettingsButton extends Component{
+export default class NavBackButton extends Component{
     render() {
         return (
-            <TouchableHighlight underlayColor={'transparent'} onPress={Actions.settings}>
+            <TouchableHighlight underlayColor={'transparent'} onPress={Actions.pop}>
                 <Icon
-                    name='fontawesome|cog'
+                    name='fontawesome|arrow-left'
                     size={20}
                     color={Theme.color.brand}
                     style={styles.icon}
@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
     icon: {
         width: 20,
         height: 20,
-        marginRight: 10
+        marginLeft: 10
     }
 });

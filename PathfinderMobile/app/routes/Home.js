@@ -5,9 +5,10 @@ import Parse from 'parse/react-native';
 import { Icon } from 'react-native-icons';
 import { Actions } from 'react-native-router-flux';
 import NavigationBar from 'react-native-navbar';
+
+//App modules
+import { NavSettingsButton, NavTitleLabel } from 'app-components';
 import { Theme, Styles } from 'app-libs';
-import SettingsButton from './shared/navbar/SettingsButton';
-import TitleLabel from './shared/navbar/TitleLabel';
 
 const {
 Component,
@@ -71,8 +72,8 @@ export default class Home extends Component {
         return (
         <View style={styles.container}>
             <NavigationBar
-            title={<TitleLabel title={'HappyPath'} />}
-            rightButton={<SettingsButton />} />
+            title={<NavTitleLabel title={'HappyPath'} />}
+            rightButton={<NavSettingsButton />} />
             <ListView
             dataSource={this.state.dataSource}
             renderRow={this.renderRow.bind(this)}

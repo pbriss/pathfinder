@@ -5,6 +5,8 @@ import Parse from 'parse/react-native';
 import { Icon } from 'react-native-icons';
 import { Actions } from 'react-native-router-flux';
 import NavigationBar from 'react-native-navbar';
+
+//App modules
 import { Theme, Styles } from 'app-libs';
 
 const {

@@ -11,7 +11,7 @@ StyleSheet,
 TouchableHighlight
 } = React;
 
-export default class CloseButton extends Component{
+export default class NavCloseButton extends Component{
     render() {
         return (
             <TouchableHighlight underlayColor={'transparent'} onPress={Actions.pop}>

@@ -3,9 +3,11 @@
 import React from 'react-native';
 import Parse from 'parse/react-native';
 import NavigationBar from 'react-native-navbar';
-import CloseButton from './shared/navbar/CloseButton';
 import FBLogin from 'react-native-facebook-login';
 import { FBLoginManager } from 'NativeModules';
+
+//App modules
+import { NavCloseButton, NavTitleLabel } from 'app-components';
 
 const {
 Component,
@@ -33,8 +35,8 @@ export default class Settings extends Component {
         return (
             <View style={styles.container}>
                 <NavigationBar
-                title={{title:'Settings'}}
-                rightButton={<CloseButton />} />
+                title={<NavTitleLabel title={'Settings'} />}
+                rightButton={<NavCloseButton />} />
 
                 { user && <Photo user={user} /> }
                 { user && <Info user={user} /> }
