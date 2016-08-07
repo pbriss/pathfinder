@@ -65,11 +65,10 @@ export default class Settings extends Component {
         };
 
         //Log into Parse
-        let _this = this;
         Parse.FacebookUtils.logIn(authData, {
             success: (user) => {
                 console.log('Logged into Parse!');
-                _this.setState({loadingCurrentUser: false});
+                this.setState({loadingCurrentUser: false});
             },
             error: (user, error) => {
                 switch (error.code) {
@@ -77,7 +76,7 @@ export default class Settings extends Component {
                         Parse.User.logOut();
                         break;
                     default:
-                        _this.setState({loadingCurrentUser: false});
+                        this.setState({loadingCurrentUser: false});
                         alert(error.message);
                 }
             }

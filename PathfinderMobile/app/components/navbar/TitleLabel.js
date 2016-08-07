@@ -14,7 +14,7 @@ export default class NavTitleLabel extends Component{
 
     static propTypes = {
         title: PropTypes.string
-    }
+    };
 
     render() {
         return (
